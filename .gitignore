@@ -1,1 +1,4 @@
 *.swp
+*.hi
+*.o
+muesli

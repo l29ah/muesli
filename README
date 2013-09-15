@@ -1,0 +1,7 @@
+A muesli calculator. Brought up because i'm not much into oocalc or smth and hope to write some clever algo to sort the mix out for me.
+
+Usage:
+
+ghc --make muesli.hs; ./muesli
+OR
+ghci; :l muesli.hs; report

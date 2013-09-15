@@ -3,9 +3,13 @@ import Data.List
 import Text.Printf
 
 sz = 32
+-- Avoiding typos and other evil stuff haunting us due to the lists being used as the primary data structure
 ck l = assert (length l == sz) l
-inf = 1/0
+
+-- Put 'nan' when the value is unspecified or irrelevant in the target daily uptakes
 nan = 0/0
+
+-- TODO a better value that taints the calculation
 idk :: Double
 idk = 0
 
@@ -16,7 +20,7 @@ idk = 0
 ----aminoacids:	histid,	isoleu,	leucin,	lysine,	methio,	
 -- misc:	price)
 raisin = ck	[3,	0.5,	79,	5,
-		0.773,	0.017,	0.044,	0.032,	0.097,	2.1e-3,	idk,	240e-6,	0.63e-6,328e-6,	idk,	idk,	idk,	idk,
+		0.773,	0.017,	0.044,	0.032,	0.097,	2.1e-3,	idk,	240e-6,	0.63e-6,328e-6,	idk,	0.29e-3,idk,	idk,
 		0,	3.6e-3,	0,	120e-6,	3.5e-6,	75e-6,	166e-6,	1e-3,	93e-6,	228e-6,	idk,	3.7e-6,	0,
 		13]
 sunflkern = ck	[19,	53,	23,	11,
@@ -42,11 +46,21 @@ iomdriul = ck	[nan,	nan,	nan,	nan,
 		3e-3,	2,	100e-6,	1,	nan,	nan,	nan,	35e-3,	nan,	100e-3,	nan,	1e-3,	nan,
 		nan]
 
-mix = map sum $ transpose [map (0.65 *) oat, map (0.2 *) raisin, map (0.15 *) sunflkern]
+-- Specify the mix
+mix = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) [
+	(0.65, oat),
+	(0.2, raisin),
+	(0.15, sunflkern)]
+
+-- Calculate the energetic value
 cal x = 4 * x!!0 + 9 * x!!1 + 4 * x!!2
+
+-- Compare the mix against the reference 2Mcal diet
 calc p ref = zipWith (/) (map (* (2000 / (cal p))) p) ref
+
 tbl = map (calc mix) [fdardi, iomdrirda, iomdriul]
 
+-- Some pretty-printing
 report = putStr $ let [pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12, rur] = transpose $ map (map (* 100)) tbl in
 	(printf "%-32s %7s %7s %7s\n" "" "FDA RDI" "DRI RDA" "DRI UL") ++
 	concatMap (\(a, [b, c, d]) -> printf "%-32s %6.0f%% %6.0f%% %6.0f%%\n" a b c d) [
@@ -82,3 +96,5 @@ report = putStr $ let [pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, 
 		("Folate", fol),
 		("Vitamin B12", vB12),
 		("Roubles per 2MCal", rur)]
+
+main = report
