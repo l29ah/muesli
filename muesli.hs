@@ -32,6 +32,19 @@ oat = ck	[16.89,	6.9,	66.27,	10.6,
 		99e-6,	33e-6,	0,	92e-6,	0.42e-6,256e-6,	137e-6,	1.6e-3,	419e-6,	160e-6,	idk,	37e-6,	0,
 		2.7]
 
+nacl = ck	[0,	0,	0,	0,
+		0,	39.32,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	60.68,
+		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+		1]
+kcl = ck	[0,	0,	0,	0,
+		52.41,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	47.6,
+		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+		16]
+cacl = ck	[0,	0,	0,	0,
+		0,	0,	36.1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	63.9,
+		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+		30]
+
 -- daily intakes, g
 fdardi = ck	[50,	65,	300,	25,
 		4.7,	2.4,	1,	0.4,	1,	0.018,	0.00015,0.015,	0.00007,0.0007,	120e-6,	2e-3,	75e-6,	3.4,
@@ -55,10 +68,21 @@ mix = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) [
 -- Calculate the energetic value
 cal x = 4 * x!!0 + 9 * x!!1 + 4 * x!!2
 
--- Compare the mix against the reference 2Mcal diet
-calc p ref = zipWith (/) (map (* (2000 / (cal p))) p) ref
+-- Normalize the mix assuming the 2Mcal diet
+norm p = map (* (2000 / (cal p))) p
 
-tbl = map (calc mix) [fdardi, iomdrirda, iomdriul]
+-- Compare the mix against the reference
+comp p ref = zipWith (/) p ref
+
+supplements p ref = comp (map sum $ transpose $ norm p :
+	map (\(grams, l) -> map ((grams / 100) *) l) [
+		(3, nacl),
+		(3, kcl),
+		(2, cacl)]) ref
+
+--supplements p ref = calc p ref
+
+tbl = map (supplements mix) [fdardi, iomdrirda, iomdriul]
 
 -- Some pretty-printing
 report = putStr $ let [pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12, rur] = transpose $ map (map (* 100)) tbl in
@@ -81,7 +105,7 @@ report = putStr $ let [pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, 
 		--("Chromium", cr),
 		("Manganese", mn),
 		--("Molybdenum", mo),
-		--("Chlorine", cl),
+		("Chlorine", cl),
 		("Vitamin A", vA),
 		("Vitamin C", vC),
 		("Vitamin D", vD),
