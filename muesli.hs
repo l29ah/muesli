@@ -5,7 +5,7 @@ import Text.Printf
 
 sz = 32
 -- Avoiding typos and other evil stuff haunting us due to the lists being used as the primary data structure
-ck l = assert (length l == sz) l
+ck l = assert (length l == sz) $ 100 : l
 
 -- Put 'nan' when the value is unspecified or irrelevant in the target daily uptakes
 nan = 0/0
@@ -51,7 +51,7 @@ ascorbica = ck	[0,	0,	0,	0,
 		0,	100,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 		300]
 
--- daily intakes, g
+-- daily intakes, g at 2Mcal
 fdardi = ck	[50,	65,	300,	25,
 		4.7,	2.4,	1,	0.4,	1,	0.018,	0.00015,0.015,	0.00007,0.0007,	120e-6,	2e-3,	75e-6,	3.4,
 		0.0009,	0.06,	0.00001,0.015,	0.00008,0.0015,	0.0017,	0.02,	0.01,	0.002,	0.0003,	0.0004,	6e-6,
@@ -71,15 +71,6 @@ mix = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) [
 	(0.2, raisin),
 	(0.15, sunflkern)]
 
--- Calculate the energetic value
-cal x = 4 * x!!0 + 9 * x!!1 + 4 * x!!2
-
--- Normalize the mix assuming the 2Mcal diet
-norm p = map (* (2000 / (cal p))) p
-
--- Compare the mix against the reference
-comp p ref = zipWith (/) p ref
-
 supplements p ref = comp (map sum $ transpose $ norm p :
 	map (\(grams, l) -> map ((grams / 100) *) l) [
 		(3, nacl),
@@ -87,11 +78,21 @@ supplements p ref = comp (map sum $ transpose $ norm p :
 		(2, cacl),
 		(0.1, ascorbica)]) ref
 
+-- Calculate the energetic value
+cal x = 4 * x!!0 + 9 * x!!1 + 4 * x!!2
+
+-- Normalize the mix assuming the 2Mcal diet
+norm p = map (* (2000 / (cal $ tail p))) p
+
+-- Compare the mix against the reference
+comp p ref = zipWith (/) p ref
+
 tbl = map (supplements mix) [replicate sz 1, fdardi, iomdrirda, iomdriul]
 
 -- Some pretty-printing
-report = putStr $ let [pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12, rur] = map (\(x:xs) -> x : map (* 100) xs) $ transpose tbl in
+report = putStr $ let [w, pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12, rur] = map (\(x:xs) -> x : map (* 100) xs) $ transpose tbl in
 	(printf "%-32s %14s %7s %7s %7s\n" "" "mass" "FDA RDI" "DRI RDA" "DRI UL") ++
+	printf "%-32s %13.7fg\n" "Total weight" (head w) ++
 	concatMap (\(a, [w, b, c, d]) -> printf "%-32s %13.7fg %6.0f%% %6.0f%% %6.0f%%\n" a w b c d) [
 		("Protein", pr),
 		("Fat", fa),
@@ -123,7 +124,7 @@ report = putStr $ let [pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, 
 		("Vitamin B6", vB6),
 		--("Biotin", bio),
 		("Folate", fol),
-		("Vitamin B12", vB12)]
-	++ printf "%-32s %8.2f\n" "Roubles per 2MCal" (head rur)
+		("Vitamin B12", vB12)] ++
+	printf "%-32s %8.2f\n" "Roubles per 2MCal" (head rur)
 
 main = report
