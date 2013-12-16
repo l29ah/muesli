@@ -5,3 +5,25 @@ Usage:
 ghc --make muesli.hs; ./muesli
 OR
 ghci; :l muesli.hs; report
+
+Sources
+	http://robrhinehart.com/?p=424
+	Calcium
+		http://ncp.sagepub.com/content/22/3/286.long
+	Potassium
+		http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
+	Sodium
+		http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
+	Chloride
+		http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
+	Upper level intake
+		Manganese
+			Opinion of the scientific committee on food on the tolerable upper intake level of manganese 19.10.2009
+				manganese supplements are evil but no evidence of any damage from excessive intake from the food sources in diets of up to 20mg daily
+		Chloride
+			it can be bypassed relatively safely as it seems it only increases the blood pressure somewhat in this dose range
+	Vitamin K
+		green veggies
+	Vitamin D
+		sunlight
+		supplements only, basically

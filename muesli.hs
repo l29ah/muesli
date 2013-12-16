@@ -1,3 +1,4 @@
+#!/usr/bin/runhaskell
 import Control.Exception
 import Data.List
 import Text.Printf
@@ -43,7 +44,12 @@ kcl = ck	[0,	0,	0,	0,
 cacl = ck	[0,	0,	0,	0,
 		0,	0,	36.1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	63.9,
 		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
-		30]
+		26]
+
+ascorbica = ck	[0,	0,	0,	0,
+		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+		0,	100,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+		300]
 
 -- daily intakes, g
 fdardi = ck	[50,	65,	300,	25,
@@ -78,16 +84,15 @@ supplements p ref = comp (map sum $ transpose $ norm p :
 	map (\(grams, l) -> map ((grams / 100) *) l) [
 		(3, nacl),
 		(3, kcl),
-		(2, cacl)]) ref
+		(2, cacl),
+		(0.1, ascorbica)]) ref
 
---supplements p ref = calc p ref
-
-tbl = map (supplements mix) [fdardi, iomdrirda, iomdriul]
+tbl = map (supplements mix) [replicate sz 1, fdardi, iomdrirda, iomdriul]
 
 -- Some pretty-printing
-report = putStr $ let [pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12, rur] = transpose $ map (map (* 100)) tbl in
-	(printf "%-32s %7s %7s %7s\n" "" "FDA RDI" "DRI RDA" "DRI UL") ++
-	concatMap (\(a, [b, c, d]) -> printf "%-32s %6.0f%% %6.0f%% %6.0f%%\n" a b c d) [
+report = putStr $ let [pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12, rur] = map (\(x:xs) -> x : map (* 100) xs) $ transpose tbl in
+	(printf "%-32s %14s %7s %7s %7s\n" "" "mass" "FDA RDI" "DRI RDA" "DRI UL") ++
+	concatMap (\(a, [w, b, c, d]) -> printf "%-32s %13.7fg %6.0f%% %6.0f%% %6.0f%%\n" a w b c d) [
 		("Protein", pr),
 		("Fat", fa),
 		("Carbohydrates", carb),
@@ -118,7 +123,7 @@ report = putStr $ let [pr, fa, carb, fib, k, na, ca, mg, ph, fe, i, zn, se, cu, 
 		("Vitamin B6", vB6),
 		--("Biotin", bio),
 		("Folate", fol),
-		("Vitamin B12", vB12),
-		("Roubles per 2MCal", rur)]
+		("Vitamin B12", vB12)]
+	++ printf "%-32s %8.2f\n" "Roubles per 2MCal" (head rur)
 
 main = report
