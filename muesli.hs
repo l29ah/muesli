@@ -62,17 +62,17 @@ fdardi = ck	[50,	65,	300,	25,
 iomdrirda = ck	[nan,	nan,	nan,	nan,
 		4.7,	1.5,	1,	0.4,	0.7,	15e-3,	150e-6,	11e-3,	55e-6,	0.9e-3,	35e-6,	2.3e-3,	45e-6,	2.3,	4e-3,
 		0.9e-3,	0.09,	15e-6,	15e-3,	120e-6,	1.2e-3,	1.3e-3,	16e-3,	5e-3,	1.3e-3,	30e-6,	0.4e-3,	2.4e-6,
-		nan]
+		1]
 iomdriul = ck	[nan,	nan,	nan,	nan,
 		nan,	2.3,	2.5,	0.7,	4,	45e-3,	1.1e-3,	40e-3,	400e-6,	10e-3,	nan,	11e-3,	2e-3,	3.6,	10e-3,
 		3e-3,	2,	100e-6,	1,	nan,	nan,	nan,	35e-3,	nan,	100e-3,	nan,	1e-3,	nan,
-		nan]
+		1]
 
 -- calculated for 65kg 18-29yo sedentary male, 2450kcal
 рсн = ck	[72,	81,	358,	20,
 		2.5,	1.3,	1,	0.4,	0.8,	10e-3,	150e-6,	12e-3,	70e-6,	1e-3,	50e-6,	2e-3,	70e-6,	2.3,	4e-3,
 		900e-6,	90e-3,	10e-6,	15e-3,	120e-6,	1.5e-3,	1.8e-3,	20e-3,	5e-3,	2e-3,	50e-6,	400e-6,	3e-6,
-		nan]
+		1]
 
 
 -- Specify the mix
@@ -136,7 +136,7 @@ report = putStr $ let [	w, pr, fa, carb, fib,
 		("Niacin", nia),
 		("Pantothenic acid", pant),
 		("Vitamin B6", vB6),
-		--("Biotin", bio),
+		("Biotin", bio),
 		("Folate", fol),
 		("Vitamin B12", vB12)] ++
 	printf "%-32s %8.2f\n" "Roubles per 2MCal" (head rur)
