@@ -5,9 +5,12 @@ Usage:
 ghc --make muesli.hs; ./muesli
 OR
 ghci; :l muesli.hs; report
+OR
+./muesli.hs
 
 Sources
 	http://robrhinehart.com/?p=424
+	http://www.bestpravo.ru/federalnoje/bz-dokumenty/c5o.htm
 	Calcium
 		http://ncp.sagepub.com/content/22/3/286.long
 	Potassium
