@@ -18,55 +18,71 @@ idk = 0
 todo = idk
 
 -- grams per 100g
--- nutrients:	[prote,	fat,	carbs,	fiber,
--- elements:	potass,	sodium,	calciu,	magnes,	phosph,	iron,	iodine,	zinc,	seleni,	copper,	chromi,	mangane,molybden,chloride,fluoride,
--- vitamins:	a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,
+-- nutrients:		[prote,	fat,	carbs,	fiber,
+-- elem:potass,	sodium,	calciu,	magnes,	phosph,	iron,	iodine,	zinc,	seleni,	copper,	chromi,	mangane,molybden,chloride,fluoride,
+-- vita:a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,
 ----aminoacids:	histid,	isoleu,	leucin,	lysine,	methio,	
--- misc:	price)
-raisin = ck	[3,	0.5,	79,	5,
-		0.773,	0.017,	0.044,	0.032,	0.097,	2.1e-3,	idk,	240e-6,	0.63e-6,328e-6,	idk,	0.29e-3,idk,	idk,	todo,
-		0,	3.6e-3,	0,	120e-6,	3.5e-6,	75e-6,	166e-6,	1e-3,	93e-6,	228e-6,	idk,	3.7e-6,	0,
-		13]
-sunflkern = ck	[19,	53,	23,	11,
-		0.608,	0.24,	0.071,	0.128,	1.2,	3.7e-3,	idk,	5e-3,	53e-6,	1.8e-3,	idk,	1.95e-3,idk,	idk,	todo,
-		0,	0,	0,	25e-3,	0,	1.48e-3,355e-6,	8.33e-3,1.13e-3,1.34e-3,idk,	227e-6,	0,
-		6.8]
-oat = ck	[16.89,	6.9,	66.27,	10.6,
-		429e-3,	2e-3,	54e-3,	177e-3,	523e-3,	4.72e-3,idk,	3.97e-3,4.3e-6,	626e-6,	idk,	4.91e-3,idk,	idk,	todo,
-		99e-6,	33e-6,	0,	92e-6,	0.42e-6,256e-6,	137e-6,	1.6e-3,	419e-6,	160e-6,	idk,	37e-6,	0,
-		2.7]
+-- misc:price)
+raisins = ck		[3,	0.5,	79,	5,
+	0.773,	0.017,	0.044,	0.032,	0.097,	2.1e-3,	idk,	240e-6,	0.63e-6,328e-6,	idk,	0.29e-3,idk,	idk,	todo,
+	0,	3.6e-3,	0,	120e-6,	3.5e-6,	75e-6,	166e-6,	1e-3,	93e-6,	228e-6,	idk,	3.7e-6,	0,
+	13]
+sunflowerKernel = ck	[19,	53,	23,	11,
+	0.608,	0.24,	0.071,	0.128,	1.2,	3.7e-3,	0,	5e-3,	53e-6,	1.8e-3,	idk,	1.95e-3,idk,	idk,	todo,
+	0,	0,	0,	25e-3,	0,	1.48e-3,355e-6,	8.33e-3,1.13e-3,1.34e-3,idk,	227e-6,	0,
+	6.8]
+oat = ck		[16.89,	6.9,	66.27,	10.6,
+	429e-3,	2e-3,	54e-3,	177e-3,	523e-3,	4.72e-3,idk,	3.97e-3,4.3e-6,	626e-6,	idk,	4.91e-3,idk,	idk,	todo,
+	99e-6,	33e-6,	0,	92e-6,	0.42e-6,256e-6,	137e-6,	1.6e-3,	419e-6,	160e-6,	idk,	37e-6,	0,
+	2.7]
+parsleyDried = ck	[26.63,	5.48,	50.64,	26.7,
+	2.683,	0.452,	1.14,	0.4,	0.436,	22e-3,	idk,	5.44e-3,idk,	idk,	idk,	idk,	idk,	idk,	idk,
+	97e-6,	125e-3,	0,	8.96e-3,1.36e-3,196e-6,	2.38e-3,9.94e-3,idk,	0.9e-3,	idk,	180e-6,	0,
+	35]
 
-nacl = ck	[0,	0,	0,	0,
-		0,	39.32,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	60.68,	0,
-		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
-		1]
-kcl = ck	[0,	0,	0,	0,
-		52.41,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	47.6,	0,
-		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
-		16]
-cacl = ck	[0,	0,	0,	0,
-		0,	0,	36.1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	63.9,	0,
-		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
-		26]
+naCl = ck		[0,	0,	0,	0,
+	0,	39.32,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	60.68,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	1]
+naClI = ck		[0,	0,	0,	0,
+	0,	39.32,	0,	0,	0,	0,	2.5e-3,	0,	0,	0,	0,	0,	0,	60.68,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	1.5]
+kCl = ck		[0,	0,	0,	0,
+	52.41,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	47.6,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	16]
+caCl = ck		[0,	0,	0,	0,
+	0,	0,	36.1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	63.9,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	26]
 
-ascorbica = ck	[0,	0,	0,	0,
-		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
-		0,	100,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
-		300]
+ascorbicAcid = ck	[0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	100,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	300]
+vigantol = ck		[0,	99.947,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0.0532,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	2400]
+retinol = ck		[0,	96.04,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	3.96,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	1000]
 
 -- daily intakes, g at 2Mcal
-fdardi = ck	[50,	65,	300,	25,
-		4.7,	2.4,	1,	0.4,	1,	0.018,	0.00015,0.015,	0.00007,0.0007,	120e-6,	2e-3,	75e-6,	3.4,	nan,
-		0.0009,	0.06,	0.00001,0.015,	0.00008,0.0015,	0.0017,	0.02,	0.01,	0.002,	0.0003,	0.0004,	6e-6,
-		1]
-iomdrirda = ck	[nan,	nan,	nan,	nan,
-		4.7,	1.5,	1,	0.4,	0.7,	15e-3,	150e-6,	11e-3,	55e-6,	0.9e-3,	35e-6,	2.3e-3,	45e-6,	2.3,	4e-3,
-		0.9e-3,	0.09,	15e-6,	15e-3,	120e-6,	1.2e-3,	1.3e-3,	16e-3,	5e-3,	1.3e-3,	30e-6,	0.4e-3,	2.4e-6,
-		1]
-iomdriul = ck	[nan,	nan,	nan,	nan,
-		nan,	2.3,	2.5,	0.7,	4,	45e-3,	1.1e-3,	40e-3,	400e-6,	10e-3,	nan,	11e-3,	2e-3,	3.6,	10e-3,
-		3e-3,	2,	100e-6,	1,	nan,	nan,	nan,	35e-3,	nan,	100e-3,	nan,	1e-3,	nan,
-		1]
+fdardi = ck		[50,	65,	300,	25,
+	4.7,	2.4,	1,	0.4,	1,	18e-3,	150e-6,	15e-3,	70e-6,	0.7e-3,	120e-6,	2e-3,	75e-6,	3.4,	nan,
+	0.9e-3,	0.06,	10e-6,	15e-3,	80e-6,	1.5e-3,	1.7e-3,	20e-3,	10e-3,	2e-3,	0.3e-3,	0.4e-3,	6e-6,
+	1]
+iomdrirda = ck		[nan,	nan,	nan,	nan,
+	4.7,	1.5,	1,	0.4,	0.7,	15e-3,	150e-6,	11e-3,	55e-6,	0.9e-3,	35e-6,	2.3e-3,	45e-6,	2.3,	4e-3,
+	0.9e-3,	0.09,	15e-6,	15e-3,	120e-6,	1.2e-3,	1.3e-3,	16e-3,	5e-3,	1.3e-3,	30e-6,	0.4e-3,	2.4e-6,
+	1]
+iomdriul = ck		[nan,	nan,	nan,	nan,
+	nan,	2.3,	2.5,	0.7,	4,	45e-3,	1.1e-3,	40e-3,	400e-6,	10e-3,	nan,	11e-3,	2e-3,	3.6,	10e-3,
+	3e-3,	2,	100e-6,	1,	nan,	nan,	nan,	35e-3,	nan,	100e-3,	nan,	1e-3,	nan,
+	1]
 
 -- calculated for 65kg 18-29yo sedentary male, 2450kcal
 рсн = ck	[72,	81,	358,	20,
@@ -78,15 +94,19 @@ iomdriul = ck	[nan,	nan,	nan,	nan,
 -- Specify the mix
 mix = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) [
 	(0.65, oat),
-	(0.2, raisin),
-	(0.15, sunflkern)]
+	(0.18, raisins),
+	(0.15, sunflowerKernel),
+	(0.02, parsleyDried)]
 
 supplements p ref = comp (map sum $ transpose $ norm p :
 	map (\(grams, l) -> map ((grams / 100) *) l) [
-		(3, nacl),
-		(3, kcl),
-		(2, cacl),
-		(0.1, ascorbica)]) ref
+		(3, naClI),
+		(3, kCl),
+		(2, caCl),
+		(0.1, ascorbicAcid),
+		(0.024, vigantol), -- one drop
+		(0.024, retinol) -- one drop
+	]) ref
 
 -- Calculate the energetic value
 cal x = 4 * x!!0 + 9 * x!!1 + 4 * x!!2
