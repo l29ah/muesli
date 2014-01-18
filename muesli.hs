@@ -112,19 +112,17 @@ plantM = [
 		(0.19, sunflowerKernel),
 		(0.02, parsleyDried)
 	]
-completeR = (plantM, [
+electrolytesS = [
 		(3, naClI),
 		(3, kCl),
 		(2, caCl),
+	]
+completeR = (plantM, electrolytesS ++ [
 		(0.1, ascorbicAcid),
 		(0.024, vigantol), -- one drop
 		(0.024, retinol) -- one drop
 	])
-
-simpleR = (plantM, [
-		(3, naClI),
-		(3, kCl),
-		(2, caCl),
+simpleR = (plantM, electrolytesS ++ [
 		(1, aerovit) -- one pill
 	])
 
@@ -166,14 +164,14 @@ report = putStr $ let [	w, pr, fa, carb, fib,
 		("Zinc", zn),
 		("Selenium", se),
 		("Copper", cu),
-		("Chromium", cr),
+		("Chromium (*)", cr),
 		("Manganese", mn),
-		("Molybdenum", mo),
+		("Molybdenum (*)", mo),
 		("Chlorine", cl),
-		("Fluoride", fl),
+		("Fluoride (*)", fl),
 		("Vitamin A", vA),
 		("Vitamin C", vC),
-		("Vitamin D", vD),
+		("Vitamin D (*)", vD),
 		("Vitamin E", vE),
 		("Vitamin K", vK),
 		("Thiamin", thi),
@@ -181,7 +179,7 @@ report = putStr $ let [	w, pr, fa, carb, fib,
 		("Niacin", nia),
 		("Pantothenic acid", pant),
 		("Vitamin B6", vB6),
-		("Biotin", bio),
+		("Biotin (*)", bio),
 		("Folate", fol),
 		("Vitamin B12", vB12)] ++
 	printf "%-32s %8.2f\n" "Roubles per 2MCal" (head rur)
