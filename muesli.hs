@@ -17,6 +17,8 @@ idk = 0
 -- Put 'todo' when the value is to be fetched
 todo = idk
 
+pills = map (* 100)
+
 -- grams per 100g
 -- nutrients:		[prote,	fat,	carbs,	fiber,
 -- elem:potass,	sodium,	calciu,	magnes,	phosph,	iron,	iodine,	zinc,	seleni,	copper,	chromi,	mangane,molybden,chloride,fluoride,
@@ -69,8 +71,7 @@ retinol = ck		[0,	96.04,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	3.96,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	1000]
--- per one pill
-aerovit = ck		[0,	0,	0,	0,
+aerovit = pills $ ck	[0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	2e-3,	0.1,	0,	20e-3,	0,	2e-3,	2e-3,	15e-3,	9.2e-3,	10e-3,	0,	0.2e-3,	25e-6,
 -- vita:a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,
@@ -124,7 +125,7 @@ simpleR = (plantM, [
 		(3, naClI),
 		(3, kCl),
 		(2, caCl),
-		(100, aerovit) -- one pill
+		(1, aerovit) -- one pill
 	])
 
 mix = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) $ fst recipe
