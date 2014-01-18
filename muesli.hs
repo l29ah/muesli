@@ -69,6 +69,13 @@ retinol = ck		[0,	96.04,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	3.96,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	1000]
+-- per one pill
+aerovit = ck		[0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	2e-3,	0.1,	0,	20e-3,	0,	2e-3,	2e-3,	15e-3,	9.2e-3,	10e-3,	0,	0.2e-3,	25e-6,
+-- vita:a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,
+	2]	-- 30 pill packs
+	
 
 -- daily intakes, g at 2Mcal
 fdardi = ck		[50,	65,	300,	25,
@@ -92,21 +99,38 @@ iomdriul = ck		[nan,	nan,	nan,	nan,
 
 
 -- Specify the mix
-mix = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) [
-	(0.64, oat),
-	(0.18, raisins),
-	(0.16, sunflowerKernel),
-	(0.02, parsleyDried)]
+-- Syntax: (
+-- 	[(fraction, product)],	-- meals
+-- 	[(grams, product)]	-- supplements
+-- 	)
+recipe = simpleR
 
-supplements p ref = comp (map sum $ transpose $ norm p :
-	map (\(grams, l) -> map ((grams / 100) *) l) [
+plantM = [
+		(0.60, oat),
+		(0.19, raisins),
+		(0.19, sunflowerKernel),
+		(0.02, parsleyDried)
+	]
+completeR = (plantM, [
 		(3, naClI),
 		(3, kCl),
 		(2, caCl),
 		(0.1, ascorbicAcid),
 		(0.024, vigantol), -- one drop
 		(0.024, retinol) -- one drop
-	]) ref
+	])
+
+simpleR = (plantM, [
+		(3, naClI),
+		(3, kCl),
+		(2, caCl),
+		(100, aerovit) -- one pill
+	])
+
+mix = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) $ fst recipe
+
+supplements p ref = comp (map sum $ transpose $ norm p :
+	(map (\(grams, l) -> map ((grams / 100) *) l) $ snd recipe)) ref
 
 -- Calculate the energetic value
 cal x = 4 * x!!0 + 9 * x!!1 + 4 * x!!2
