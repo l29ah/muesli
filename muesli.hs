@@ -74,7 +74,6 @@ retinol = ck		[0,	96.04,	0,	0,
 aerovit = pills $ ck	[0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	2e-3,	0.1,	0,	20e-3,	0,	2e-3,	2e-3,	15e-3,	9.2e-3,	10e-3,	0,	0.2e-3,	25e-6,
--- vita:a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,
 	2]	-- 30 pill packs
 	
 
@@ -115,7 +114,7 @@ plantM = [
 electrolytesS = [
 		(3, naClI),
 		(3, kCl),
-		(2, caCl),
+		(2, caCl)
 	]
 completeR = (plantM, electrolytesS ++ [
 		(0.1, ascorbicAcid),
@@ -143,7 +142,8 @@ comp p ref = zipWith (/) p ref
 tbl = map (supplements mix) [replicate sz 1, рсн, fdardi, iomdrirda, iomdriul]
 
 -- Some pretty-printing
-report = putStr $ let [	w, pr, fa, carb, fib,
+report = putStr $ let [
+			w, pr, fa, carb, fib,
 			k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, fl,
 			vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12,
 			rur] = map (\(x:xs) -> x : map (* 100) xs) $ transpose tbl in
