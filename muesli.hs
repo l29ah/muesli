@@ -182,6 +182,12 @@ comp p ref = zipWith (/) p ref
 tbl = map (supplements mix) [replicate sz 1, рсн, fdardi, iomdrirda, iomdriul]
 
 -- Some pretty-printing
+printMass :: Double -> String
+printMass x
+	| x > 2     = printf "%4.1f  g" x
+	| x > 2e-3  = printf "%4.1f mg" $ x * 1e3
+	| otherwise = printf "%4.1f µg" $ x * 1e6
+
 report = putStr $ let [
 			w, pr, fa, carb, fib,
 			k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, fl,
@@ -189,9 +195,9 @@ report = putStr $ let [
 			his, ile, leu, lys, met, phe, thr, trp, val,
 			ala, arg, asn, asp, cys, glu, gln, gly, orn, pro, sel, ser, tyr,
 			rur] = map (\(x:xs) -> x : map (* 100) xs) $ transpose tbl in
-	(printf "%-32s %14s %7s %7s %7s %7s\n" "" "mass" "РСН" "FDA RDI" "DRI RDA" "DRI UL") ++
-	printf "%-32s %13.7fg\n" "Total weight" (head w) ++
-	concatMap (\(a, [w, b, c, d, e]) -> printf "%-32s %13.7fg %6.0f%% %6.0f%% %6.0f%% %6.0f%%\n" a w b c d e) [
+	(printf "%-26s %14s %7s %7s %7s %7s\n" "" "mass" "РСН" "FDA RDI" "DRI RDA" "DRI UL") ++
+	printf "%-26s %11.0f  g\n" "Total weight" (head w) ++
+	concatMap (\(a, [w, b, c, d, e]) -> printf "%-26s %14s %6.0f%% %6.0f%% %6.0f%% %6.0f%%\n" a (printMass w) b c d e) [
 		("Protein", pr),
 		("Fat", fa),
 		("Carbohydrates", carb),
@@ -253,7 +259,7 @@ report = putStr $ let [
 		("Serine", ser),
 		("Tyrosine (b)", tyr)
 		] ++
-	printf "%-32s %8.2f\n" "Roubles per 2MCal" (head rur) ++
+	printf "%-29s %8.2f\n" "Roubles per 2MCal" (head rur) ++
 	"(*) - see README\n" ++
 	"(<letter>) - specified as the sum of components in IOM RDA\n"
 
