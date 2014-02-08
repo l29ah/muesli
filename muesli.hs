@@ -142,8 +142,6 @@ iomdriul = ck		[nan,	nan,	nan,	nan,
 -- 	[(fraction, product)],	-- meals
 -- 	[(grams, product)]	-- supplements
 -- 	)
-recipe = simpleR
-
 plantM = [
 		(0.59, oat),
 		(0.19, raisins),
@@ -165,10 +163,10 @@ simpleR = (plantM, electrolytesS ++ [
 		(1, aerovit) -- one pill
 	])
 
-mix = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) $ fst recipe
+mix rec = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) $ fst rec
 
-supplements p ref = comp (map sum $ transpose $ norm p :
-	(map (\(grams, l) -> map ((grams / 100) *) l) $ snd recipe)) ref
+supplements rec p ref = comp (map sum $ transpose $ norm p :
+	(map (\(grams, l) -> map ((grams / 100) *) l) $ snd rec)) ref
 
 -- Calculate the energetic value
 cal x = 4 * x!!0 + 9 * x!!1 + 4 * x!!2
@@ -179,7 +177,7 @@ norm p = map (* (2000 / (cal $ tail p))) p
 -- Compare the mix against the reference
 comp p ref = zipWith (/) p ref
 
-tbl = map (supplements mix) [replicate sz 1, рсн, fdardi, iomdrirda, iomdriul]
+tbl rec = map (supplements rec $ mix rec) [replicate sz 1, рсн, fdardi, iomdrirda, iomdriul]
 
 -- Some pretty-printing
 printMass :: Double -> String
@@ -188,13 +186,13 @@ printMass x
 	| x > 2e-3  = printf "%4.1f mg" $ x * 1e3
 	| otherwise = printf "%4.1f µg" $ x * 1e6
 
-report = putStr $ let [
-			w, pr, fa, carb, fib,
-			k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, fl,
-			vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12, o3, o6,
-			his, ile, leu, lys, met, phe, thr, trp, val,
-			ala, arg, asn, asp, cys, glu, gln, gly, orn, pro, sel, ser, tyr,
-			rur] = map (\(x:xs) -> x : map (* 100) xs) $ transpose tbl in
+report rec = putStr $ let [
+				w, pr, fa, carb, fib,
+				k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, fl,
+				vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12, o3, o6,
+				his, ile, leu, lys, met, phe, thr, trp, val,
+				ala, arg, asn, asp, cys, glu, gln, gly, orn, pro, sel, ser, tyr,
+				rur] = map (\(x:xs) -> x : map (* 100) xs) $ transpose $ tbl rec in
 	(printf "%-26s %14s %7s %7s %7s %7s\n" "" "mass" "РСН" "FDA RDI" "DRI RDA" "DRI UL") ++
 	printf "%-26s %11.0f  g\n" "Total weight" (head w) ++
 	concatMap (\(a, [w, b, c, d, e]) -> printf "%-26s %14s %6.0f%% %6.0f%% %6.0f%% %6.0f%%\n" a (printMass w) b c d e) [
@@ -260,7 +258,8 @@ report = putStr $ let [
 		("Tyrosine (b)", tyr)
 		] ++
 	printf "%-29s %8.2f\n" "Roubles per 2MCal" (head rur) ++
+	printf "%-29s %8.2f\n" "Roubles per 1kg" ((head rur) / (head w) * 1000) ++
 	"(*) - see README\n" ++
 	"(<letter>) - specified as the sum of components in IOM RDA\n"
 
-main = report
+main = report simpleR
