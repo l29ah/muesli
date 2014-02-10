@@ -22,7 +22,7 @@ pills = map (* 100)
 -- grams per 100g
 -- nutrients:		[prote,	fat,	carbs,	fiber,
 -- elem:potass,	sodium,	calciu,	magnes,	phosph,	iron,	iodine,	zinc,	seleni,	copper,	chromi,	mangane,molybden,chloride,fluoride,
--- vita:	a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,	omega3,	omega6,
+-- vita:a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,	omega3,	omega6,
 -- e aa:His,	Ile,	Leu,	Lys,	Met,	Phe,	Thr,	Trp,	Val,
 -- o aa:Ala,	Arg,	Asn,	Asp,	Cys,	Glu,	Gln,	Gly,	Orn,	Pro,	Sel,	Ser,	Tyr,
 -- misc:price)
@@ -37,7 +37,8 @@ sunflowerKernel = ck	[19,	53,	23,	11,	-- USDA 3670
 	6.32e-1,	1.14e0,	1.66e0,	9.37e-1,	9.28e-1,1.17e0,	9.28e-1,	3.48e-1,	1.32e0,	1.12e0,	2.40e0,idk,	2.45e0,	4.51e-1,	5.58e0,	idk,	1.46e0,	idk,	1.18e0,	idk,	1.08e0,	6.66e-1,
 	6.8]	-- auchan
 oat = ck	-- USDA 6386
-			[1.69e1,	6.90e0,	6.63e1,	1.06e1,	4.29e-1,	2.00e-3,5.40e-2,	1.77e-1,	5.23e-1,	4.72e-3,	idk,	3.97e-3,	idk,	6.26e-4,	idk,	4.92e-3,idk,	idk,	idk,	0.00e0,	idk,	0.00e0,	idk,	idk,	7.63e-4,	1.39e-4,	9.61e-4,	1.35e-3,	1.19e-4,idk,	5.60e-5,	0.00e0,	idk,	idk,	4.05e-1,	6.94e-1,	1.28e0,	7.01e-1,	5.75e-1,	8.95e-1,	5.75e-1,	2.34e-1,	9.37e-1,	8.81e-1,	1.19e0,idk,	1.45e0,	4.08e-1,	3.71e0,	idk,	8.41e-1,	idk,	9.34e-1,	idk,	7.50e-1,	5.73e-1,
+			[1.69e1,	6.90e0,	6.63e1,
+	1.06e1,	4.29e-1,2.00e-3,5.40e-2,1.77e-1,5.23e-1,	4.72e-3,	idk,	3.97e-3,	idk,	6.26e-4,	idk,	4.92e-3,idk,	idk,	idk,	0.00e0,	idk,	0.00e0,	idk,	idk,	7.63e-4,	1.39e-4,	9.61e-4,	1.35e-3,	1.19e-4,idk,	5.60e-5,	0.00e0,	idk,	idk,	4.05e-1,	6.94e-1,	1.28e0,	7.01e-1,	5.75e-1,	8.95e-1,	5.75e-1,	2.34e-1,	9.37e-1,	8.81e-1,	1.19e0,idk,	1.45e0,	4.08e-1,	3.71e0,	idk,	8.41e-1,	idk,	9.34e-1,	idk,	7.50e-1,	5.73e-1,
 	2.7]	-- auchan
 parsleyDried = ck	[2.66e1,5.48e0,	5.06e1,	2.67e1,	-- USDA 254
 	2.68e0,	4.52e-1,1.14e0,	4.00e-1,4.36e-1,2.20e-2,idk,	5.44e-3,1.41e-5,7.80e-4,idk,	9.81e-3,idk,	idk,	idk,
@@ -56,6 +57,13 @@ flaxseedOil = ck	-- USDA 8275
 	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,
 	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,
 	22.4]	-- auchan, 500ml bottles
+flaxseed = ck	-- USDA 3757, modified using data from 8275
+			[1.83e1,4.22e1,	2.89e1,	2.73e1,
+	8.13e-1,3.00e-2,2.55e-1,3.92e-1,6.42e-1,5.73e-3,idk,	4.34e-3,2.54e-5,1.22e-3,idk,	2.48e-3,idk,	idk,	idk,
+	0.00e0,	idk,	0.00e0,	3.10e-4,4.30e-6,1.64e-3,1.61e-4,3.08e-3,9.85e-4,4.73e-4,idk,	8.70e-5,0.00e0,	22.813,	7.00e-3,
+	4.72e-1,8.96e-1,1.24e0,	8.62e-1,7.66e-1,9.57e-1,7.66e-1,2.97e-1,1.07e0,
+	9.25e-1,1.92e0,	idk,	2.05e0,3.40e-1,	4.04e0,	idk,	1.25e0,	idk,	8.06e-1,idk,	9.70e-1,4.93e-1,
+	14.75]	-- http://www.vetlek.ru/shop/?gid=20493&id=5964, 2kg packs
 
 naCl = ck		[0,	0,	0,	0,
 	0,	39.32,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	60.68,	0,
@@ -143,11 +151,11 @@ iomdriul = ck		[nan,	nan,	nan,	nan,
 -- 	[(grams, product)]	-- supplements
 -- 	)
 plantM = [
-		(0.59, oat),
+		(0.58, oat),
 		(0.19, raisins),
 		(0.19, sunflowerKernel),
 		(0.02, parsleyDried),
-		(0.01, flaxseedOil)
+		(0.02, flaxseed)
 	]
 electrolytesS = [
 		(3, naClI),
