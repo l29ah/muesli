@@ -14,4 +14,4 @@ for c in Protein 'Total lipid' 'Carbohydrate, by difference' 'Fiber, total' Pota
 	v=$(ghc -e 'let nonempty x = if x == [] then undefined else x in Text.Printf.printf "%.2e" (sum $ nonempty $ '"`sed -ne 's#.*'"$c"'[^,	]*	\(.*\)$#(\1):#p' "$t" | sed -e 's#mg#/1e3#;s#µg#/1e6#;s#g##'`[] :: Double)" 2>/dev/null)
 	echo -n ${v:-idk}
 done
-echo ', 0]'
+echo ']'
