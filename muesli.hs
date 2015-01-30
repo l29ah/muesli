@@ -81,6 +81,11 @@ naClI = ck		[0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
+naHCO3 = ck		[0,	0,	0,	0,
+	0,	27.38,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
 kCl = ck		[0,	0,	0,	0,
 	52.41,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	47.6,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
@@ -88,6 +93,11 @@ kCl = ck		[0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
 caCl = ck		[0,	0,	0,	0,
 	0,	0,	36.1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	63.9,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
+iodineEt = ck		[0,	0,	0,	0,	-- pharmaceutical iodine in ethanol 5%
+	0,	0,	0,	0,	0,	0,	5,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
@@ -112,7 +122,6 @@ aerovit = pills $ ck	[0,	0,	0,	0,
 	2e-3,	0.1,	0,	20e-3,	0,	2e-3,	2e-3,	15e-3,	9.2e-3,	10e-3,	0,	0.2e-3,	25e-6,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
-	
 
 -- daily intakes, g at 2Mcal
 fdardi = ck		[50,	65,	300,	25,
@@ -160,20 +169,15 @@ plantNoGlutenM = [
 	]
 seleniumS = (7, brazilNuts)
 electrolytesS = [
-		(3, naClI),
+		(4, naHCO3),
 		(3, kCl),
 		(2, caCl)
 	]
-completeR = (plantM, electrolytesS ++ [
-		seleniumS,
-		(0.1, ascorbicAcid),
-		(0.024, vigantol), -- one drop
-		(0.024, retinol) -- one drop
-	])
 simpleR = (plantM, electrolytesS ++ [
 		seleniumS,
 		(1, aerovit), -- one pill
-		(0.024, vigantol) -- one drop
+		(0.024, vigantol), -- one drop
+		(0.005, iodineEt)
 	])
 
 mix rec = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) $ fst rec
