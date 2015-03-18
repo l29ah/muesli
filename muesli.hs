@@ -96,6 +96,11 @@ caCl = ck		[0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
+ca2CO3 = ck		[0,	0,	0,	0,
+	0,	0,	57.1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
 iodineEt = ck		[0,	0,	0,	0,	-- pharmaceutical iodine in ethanol 5%
 	0,	0,	0,	0,	0,	0,	5,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
@@ -169,15 +174,14 @@ plantNoGlutenM = [
 	]
 seleniumS = (7, brazilNuts)
 electrolytesS = [
-		(4, naHCO3),
+		(3, naClI),
 		(3, kCl),
-		(2, caCl)
+		(2, ca2CO3)
 	]
 simpleR = (plantM, electrolytesS ++ [
 		seleniumS,
 		(1, aerovit), -- one pill
-		(0.024, vigantol), -- one drop
-		(0.005, iodineEt)
+		(0.024, vigantol) -- one drop
 	])
 
 mix rec = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) $ fst rec
