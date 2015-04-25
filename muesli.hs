@@ -44,9 +44,8 @@ sunflowerOil = ck	-- USDA 650
 	0.00e0,	0.00e0,	0.00e0,	0.00e0,	0.00e0,	0.00e0,	0.00e0,	0.00e0,	0.00e0,	0.00e0,	0.00e0,	idk,	0.00e0,	0.00e0,	0.00e0,	idk,	0.00e0,	idk,	0.00e0,	idk,	0.00e0,	0.00e0]
 brazilNuts = ck	-- USDA 3685
 	[1.43e1,	6.64e1,	1.23e1,	7.50e0,	6.59e-1,	3.00e-3,	1.60e-1,3.76e-1,	7.25e-1,	2.43e-3,	idk,	4.06e-3,	1.92e-3,1.74e-3,	idk,	1.22e-3,	idk,	idk,	idk,	0.00e0,	idk,	0.00e0,	5.73e-3,	0.00e0,	6.17e-4,	3.50e-5,	2.95e-4,	1.84e-4,	1.01e-4,	idk,	2.20e-5,	0.00e0,	1.70e-2,	1.70e-2,3.86e-1,	5.16e-1,	1.16e0,	4.92e-1,	3.62e-1,	6.30e-1,3.62e-1,	1.41e-1,	7.56e-1,	5.77e-1,	2.15e0,	idk,	1.35e0,	3.67e-1,	3.15e0,	idk,	7.18e-1,	idk,	6.57e-1,	idk,	6.83e-1,	4.20e-1]
-oat = ck	-- USDA 6386
-			[1.69e1,	6.90e0,	6.63e1,
-	1.06e1,	4.29e-1,2.00e-3,5.40e-2,1.77e-1,5.23e-1,	4.72e-3,	idk,	3.97e-3,	idk,	6.26e-4,	idk,	4.92e-3,idk,	idk,	idk,	0.00e0,	idk,	0.00e0,	idk,	idk,	7.63e-4,	1.39e-4,	9.61e-4,	1.35e-3,	1.19e-4,idk,	5.60e-5,	0.00e0,	idk,	idk,	4.05e-1,	6.94e-1,	1.28e0,	7.01e-1,	5.75e-1,	8.95e-1,	5.75e-1,	2.34e-1,	9.37e-1,	8.81e-1,	1.19e0,idk,	1.45e0,	4.08e-1,	3.71e0,	idk,	8.41e-1,	idk,	9.34e-1,	idk,	7.50e-1,	5.73e-1]
+oat = ck	-- USDA 6454/20038
+			[16.89e0,	6.90e0,	66.27e0,	10.6e0,	429e-3,	2e-3,	54e-3,	177e-3,	523e-3,	4.72e-3,	idk,	3.97e-3,	idk,	0.626e-3,	idk,	4.916e-3,	idk,	idk,	idk,	0e-6,	0.0e-3,0.0e-6,	idk,	idk,	0.763e-3,	0.139e-3,	0.961e-3,	1.349e-3,	0.119e-3,	idk,	56e-6,	0.00e-6,	idk,	idk,	0.405e0,	0.694e0,	1.284e0,	0.701e0,	0.575e0,	0.895e0,	0.575e0,	0.234e0,	0.937e0,	0.881e0,	1.192e0,	idk,	1.448e0,	0.408e0,	3.712e0,idk,	0.841e0,	idk,	0.934e0,	idk,	0.750e0,	0.573e0]
 buckwheat = ck	-- USDA 6358
 			[1.32e1,	3.40e0,	7.15e1,	1.00e1,	4.60e-1,	1.00e-3,	1.80e-2,	2.31e-1,	3.47e-1,	2.20e-3,	idk,	2.40e-3,	8.30e-6,	1.10e-3,	idk,	1.30e-3,	idk,	idk,	idk,	0.00e0,	idk,	0.00e0,	idk,	idk,	1.01e-4,	4.25e-4,	7.02e-3,	1.23e-3,	2.10e-4,	idk,	3.00e-5,	0.00e0,	0.00e0,	idk,	3.09e-1,	4.98e-1,	8.32e-1,	6.72e-1,	5.06e-1,	5.20e-1,	5.06e-1,	1.92e-1,	6.78e-1,	7.48e-1,	9.82e-1,	idk,	1.13e0,	2.29e-1,	2.05e0,	idk,	1.03e0,	idk,5.07e-1,	idk,	6.85e-1,	2.41e-1]
 rice = ck	-- USDA 6504
@@ -61,6 +60,10 @@ parsleyDried = ck	[2.66e1,5.48e0,	5.06e1,	2.67e1,	-- USDA 254
 	2.68e0,	4.52e-1,1.14e0,	4.00e-1,4.36e-1,2.20e-2,idk,	5.44e-3,1.41e-5,7.80e-4,idk,	9.81e-3,idk,	idk,	idk,
 	9.70e-5,idk,	0.00e0,	8.96e-3,1.36e-3,1.96e-4,2.38e-3,9.94e-3,1.06e-3,9.00e-4,idk,	1.80e-4,0,	1.86,	1.264,	-- questionable
 	7.18e-1,	1.55e0,	2.79e0,	2.10e0,	1.19e0,	1.71e0,1.19e0,	4.75e-1,	2.02e0,	1.78e0,	1.76e0,	idk,	3.17e0,2.98e-1,	3.69e0,	idk,	1.76e0,	idk,	2.01e0,	idk,	1.16e0,1.16e0]
+onionTops = ck	-- USDA 3075/11292
+			[0.97e0,	0.47e0,	5.74e0,	1.8e0,	159e-3,	15e-3,	52e-3,	16e-3,	25e-3,	0.51e-3,	idk,	0.20e-3,	0.5e-6,	0.031e-3,	idk,	0.150e-3,	idk,	idk,idk,	200e-6,	13.4e-3,	0.0e-6,	0.21e-3,	156.3e-6,	0.030e-3,	0.026e-3,	0.330e-3,	0.138e-3,	0.088e-3,	idk,	30e-6,	0.00e-6,	0.021e0,	0.043e0,	idk,	idk,	idk,	idk,	idk,	idk,idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,idk,	idk,	idk,	idk,	idk]
+dill = ck	-- USDA 275/02045
+			[3.46e0,	1.12e0,	7.02e0,	2.1e0,	738e-3,	61e-3,	208e-3,	55e-3,	66e-3,	6.59e-3,	idk,	0.91e-3,	idk,	0.146e-3,	idk,	1.264e-3,	idk,	idk,idk,	386e-6,	85.0e-3,	0.0e-6,	idk,	idk,	0.058e-3,	0.296e-3,	1.570e-3,	0.397e-3,	0.185e-3,	idk,	150e-6,	0.00e-6,	idk,idk,	0.071e0,	0.195e0,	0.159e0,	0.246e0,	0.068e0,	0.065e0,	0.068e0,	0.014e0,	0.154e0,	0.227e0,	0.142e0,	idk,	0.343e0,	0.017e0,	0.290e0,	idk,	0.169e0,	idk,0.248e0,	idk,	0.158e0,	0.096e0]
 flaxseed = ck	-- USDA 3757, modified using data from 8275
 			[1.83e1,4.22e1,	2.89e1,	2.73e1,
 	8.13e-1,3.00e-2,2.55e-1,3.92e-1,6.42e-1,5.73e-3,idk,	4.34e-3,2.54e-5,1.22e-3,idk,	2.48e-3,idk,	idk,	idk,
@@ -161,27 +164,41 @@ iomdriul = ck		[nan,	nan,	nan,	nan,
 -- 	[(fraction, product)],	-- meals
 -- 	[(grams, product)]	-- supplements
 -- 	)
-plantM bulk = [
-		(0.58, bulk),
-		(0.19, raisins),
+fatsM = [
 		(0.19, sunflowerKernel),
-		(0.02, parsleyDried),
 		(0.02, flaxseed)
 	]
+fatsOilsM = [
+		(0.19, sunflowerOil),
+		(0.02, flaxseedOil)
+	]
+plantM fats bulk = [
+		(0.58, bulk),
+		(0.19, raisins),
+		(0.02, parsleyDried)
+	] ++ fats
 electrolytesS = [
 		(3, naClI),
 		(3, kCl),
 		(2, ca2CO3)
 	]
-simpleR bulk selenium = (plantM bulk, electrolytesS ++ [
+seNutsS = (7, brazilNuts)
+defaultS selenium = electrolytesS ++ [
 		selenium,
 		(1, aerovit), -- one pill
-		(0.024, vigantol) -- one drop
-	])
+		(0.024, vigantol)] -- one drop
+
+simpleR bulk selenium = (plantM fatsOilsM bulk, defaultS selenium)
 
 mixes = [
-	("default", simpleR oat (7, brazilNuts)),
-	("gluten-free", simpleR buckwheat (7, brazilNuts))
+		("default", simpleR oat seNutsS),
+		("gluten-free", simpleR buckwheat seNutsS),
+		("funny-weed", ([
+			(0.57, oat),
+			(0.19, raisins),
+			(0.01, parsley),
+			(0.01, onionTops),
+			(0.01, dill)] ++ fatsOilsM, defaultS seNutsS))
 	]
 
 mix rec = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) $ fst rec
