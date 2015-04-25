@@ -1,4 +1,5 @@
 #!/bin/bash
+# Usage: $0 2209
 t=`tempfile -p muesli`
 trap 'rm "$t"' EXIT
 foodtable "$1" > "$t"

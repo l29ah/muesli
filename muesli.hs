@@ -1,6 +1,8 @@
 #!/usr/bin/runhaskell
 import Control.Exception
 import Data.List
+import Data.Maybe
+import System.Environment
 import Text.Printf
 
 sz = 56
@@ -30,6 +32,7 @@ raisins = ck		[3,	0.5,	79,	5,	-- USDA 2446
 	0.773,	0.017,	0.044,	0.032,	0.097,	2.1e-3,	idk,	240e-6,	0.63e-6,328e-6,	idk,	0.29e-3,idk,	idk,	todo,
 	0,	3.6e-3,	0,	120e-6,	3.5e-6,	75e-6,	166e-6,	1e-3,	93e-6,	228e-6,	idk,	3.7e-6,	0,	0,	1e-3,
 	7.20e-2,	5.70e-2,	9.60e-2,8.40e-2,	7.70e-2,	6.50e-2,	7.70e-2,	5.00e-2,	8.30e-2,	1.05e-1,	4.13e-1,	idk,	1.10e-1,	1.90e-2,	1.64e-1,	idk,	8.00e-2,	idk,	2.54e-1,	idk,	7.00e-2,	1.20e-2]
+bananaDried = ck	[3.89e0,	1.81e0,	8.83e1,	9.90e0,	1.49e0,	3.00e-3,	2.20e-2,	1.08e-1,	7.40e-2,	1.15e-3,	idk,	6.10e-4,	idk,	3.91e-4,	idk,	5.74e-4,	idk,	idk,	idk,	idk,	idk,	idk,	3.90e-4,	idk,	1.80e-4,	2.40e-4,	2.80e-3,	idk,	4.40e-4,	idk,idk,	idk,	0.00e0,	idk,	3.33e-1,	1.67e-1,	3.59e-1,	1.62e-1,	1.71e-1,	2.01e-1,	1.71e-1,	idk,	2.82e-1,	2.22e-1,	1.76e-1,	idk,	5.03e-1,	6.30e-2,	3.99e-1,	idk,1.90e-1,	idk,	2.29e-1,	idk,	2.26e-1,	1.21e-1] -- USDA 2209
 sunflowerKernel = ck	[19,	53,	23,	11,	-- USDA 3670
 	0.608,	0.24,	0.071,	0.128,	1.2,	3.7e-3,	0,	5e-3,	53e-6,	1.8e-3,	idk,	1.95e-3,idk,	idk,	todo,
 	0,	0,	0,	25e-3,	0,	1.48e-3,355e-6,	8.33e-3,1.13e-3,1.34e-3,idk,	227e-6,	0,	14e-3,	12,	-- from other sources
@@ -158,31 +161,28 @@ iomdriul = ck		[nan,	nan,	nan,	nan,
 -- 	[(fraction, product)],	-- meals
 -- 	[(grams, product)]	-- supplements
 -- 	)
-plantM = [
-		(0.64, oat),
-		(0.22, raisins),
-		(0.02, parsleyDried),
-		(0.10, sunflowerOil),
-		(0.02, flaxseedOil)
-	]
-plantNoGlutenM = [
-		(0.58, buckwheat),
+plantM bulk = [
+		(0.58, bulk),
 		(0.19, raisins),
 		(0.19, sunflowerKernel),
 		(0.02, parsleyDried),
 		(0.02, flaxseed)
 	]
-seleniumS = (7, brazilNuts)
 electrolytesS = [
 		(3, naClI),
 		(3, kCl),
 		(2, ca2CO3)
 	]
-simpleR = (plantM, electrolytesS ++ [
-		seleniumS,
+simpleR bulk selenium = (plantM bulk, electrolytesS ++ [
+		selenium,
 		(1, aerovit), -- one pill
 		(0.024, vigantol) -- one drop
 	])
+
+mixes = [
+	("default", simpleR oat (7, brazilNuts)),
+	("gluten-free", simpleR buckwheat (7, brazilNuts))
+	]
 
 mix rec = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) $ fst rec
 
@@ -281,4 +281,8 @@ report rec = putStr $ let [
 	"(*) - see README\n" ++
 	"(<letter>) - specified as the sum of components in IOM RDA\n"
 
-main = report simpleR
+main = do
+	mixstr : [] <- getArgs
+	maybe
+		(putStrLn $ "Incorrect mix name specified: " ++ mixstr ++ "; available mixes:\n" ++ (unlines $ map fst $ mixes))
+		report $ lookup mixstr mixes
