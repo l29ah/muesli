@@ -282,7 +282,9 @@ report rec = putStr $ let [
 	"(<letter>) - specified as the sum of components in IOM RDA\n"
 
 main = do
-	mixstr : [] <- getArgs
+	args <- getArgs
 	maybe
-		(putStrLn $ "Incorrect mix name specified: " ++ mixstr ++ "; available mixes:\n" ++ (unlines $ map fst $ mixes))
-		report $ lookup mixstr mixes
+		(putStrLn "Usage: $0 <mix name>")
+		(\mixstr -> maybe
+			(putStr $ "Incorrect mix name specified: " ++ mixstr ++ "; available mixes:\n\n" ++ (unlines $ map fst $ mixes))
+			report $ lookup mixstr mixes) $ listToMaybe args
