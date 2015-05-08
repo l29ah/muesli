@@ -1,4 +1,5 @@
 #!/usr/bin/runhaskell
+{-# OPTIONS_GHC -fno-warn-tabs #-}
 import Control.Exception
 import Data.List
 import Data.Maybe
