@@ -3,6 +3,7 @@
 import Control.Exception
 import Data.List
 import Data.Maybe
+import System.Console.ANSI
 import System.Environment
 import Text.Printf
 
@@ -225,10 +226,20 @@ printMass x
 	| x > 2e-3  = printf "%4.1f mg" $ x * 1e3
 	| otherwise = printf "%4.1f µg" $ x * 1e6
 
-printPercent :: Double -> String
-printPercent x
+printPercent :: (Double -> Color) -> Double -> String
+printPercent schema x
 	| isNaN x = printf "       "
-	| otherwise = printf "%6.0f%%" x
+	| otherwise = colorify schema x (printf "%6.0f%%" x)
+
+colorify :: (Double -> Color) -> Double -> String -> String
+colorify schema x s =
+		concat [
+			setSGRCode [SetColor Foreground Vivid (schema x)],
+			s,
+			setSGRCode [Reset]]
+
+good x = if x < 75 then Red else if x < 125 then Yellow else Green
+bad x = if x < 75 then Green else if x < 125 then Yellow else Red
 
 report rec = putStr $ let [
 				w, pr, fa, carb, fib,
@@ -239,7 +250,7 @@ report rec = putStr $ let [
 				] = map (\(x:xs) -> x : map (* 100) xs) $ transpose $ tbl rec in
 	(printf "%-26s %14s %7s %7s %7s %7s\n" "" "mass" "РСН" "FDA RDI" "DRI RDA" "DRI UL") ++
 	printf "%-26s %11.0f  g\n" "Total weight" (head w) ++
-	concatMap (\(a, [w, b, c, d, e]) -> printf "%-26s %14s %s %s %s %s\n" a (printMass w) (printPercent b) (printPercent c) (printPercent d) (printPercent e)) [
+	concatMap (\(a, [w, b, c, d, e]) -> printf "%-26s %14s %s %s %s %s\n" a (printMass w) (printPercent good b) (printPercent good c) (printPercent good d) (printPercent bad e)) [
 		("Protein", pr),
 		("Fat", fa),
 		("Carbohydrates", carb),
