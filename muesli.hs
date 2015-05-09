@@ -225,6 +225,11 @@ printMass x
 	| x > 2e-3  = printf "%4.1f mg" $ x * 1e3
 	| otherwise = printf "%4.1f µg" $ x * 1e6
 
+printPercent :: Double -> String
+printPercent x
+	| isNaN x = printf "       "
+	| otherwise = printf "%6.0f%%" x
+
 report rec = putStr $ let [
 				w, pr, fa, carb, fib,
 				k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, fl,
@@ -234,7 +239,7 @@ report rec = putStr $ let [
 				] = map (\(x:xs) -> x : map (* 100) xs) $ transpose $ tbl rec in
 	(printf "%-26s %14s %7s %7s %7s %7s\n" "" "mass" "РСН" "FDA RDI" "DRI RDA" "DRI UL") ++
 	printf "%-26s %11.0f  g\n" "Total weight" (head w) ++
-	concatMap (\(a, [w, b, c, d, e]) -> printf "%-26s %14s %6.0f%% %6.0f%% %6.0f%% %6.0f%%\n" a (printMass w) b c d e) [
+	concatMap (\(a, [w, b, c, d, e]) -> printf "%-26s %14s %s %s %s %s\n" a (printMass w) (printPercent b) (printPercent c) (printPercent d) (printPercent e)) [
 		("Protein", pr),
 		("Fat", fa),
 		("Carbohydrates", carb),
