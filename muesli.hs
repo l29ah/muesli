@@ -100,6 +100,16 @@ kCl = ck		[0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
+kCitrate = ck		[0,	0,	0,	0,	-- K3C6H5O7
+	38.235,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
+kSelenate = ck		[0,	0,	0,	0,	-- K2SeO4
+	35.294,	0,	0,	0,	0,	0,	0,	0,	35.747,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
 caCl = ck		[0,	0,	0,	0,
 	0,	0,	36.1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	63.9,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
@@ -155,7 +165,7 @@ iomdriul = ck		[nan,	nan,	nan,	nan,
 	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan]
 
 -- calculated for 65kg 18-29yo sedentary male, 2450kcal
-рсн = ck	[72,	81,	358,	20,
+рсн = ck	[59,	66,	292,	16,	-- balanced for 2000kcal
 	2.5,	1.3,	1,	0.4,	0.8,	10e-3,	150e-6,	12e-3,	70e-6,	1e-3,	50e-6,	2e-3,	70e-6,	2.3,	4e-3,
 	900e-6,	90e-3,	10e-6,	15e-3,	120e-6,	1.5e-3,	1.8e-3,	20e-3,	5e-3,	2e-3,	50e-6,	400e-6,	3e-6,	1.6,	7,
 	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,
@@ -168,33 +178,40 @@ iomdriul = ck		[nan,	nan,	nan,	nan,
 -- 	[(grams, product)]	-- supplements
 -- 	)
 fatsM = [
-		(0.19, sunflowerKernel),
-		(0.02, flaxseed)
+		(0.115, sunflowerKernel),
+		(0.015, flaxseed)
 	]
 fatsOilsM = [
-		(0.19, sunflowerOil),
-		(0.02, flaxseedOil)
+		(0.115, sunflowerOil),
+		(0.015, flaxseedOil)
 	]
 plantM fats bulk = [
-		(0.58, bulk),
-		(0.19, raisins),
+		(0.67, bulk),
+		(0.18, raisins),
 		(0.02, parsleyDried)
 	] ++ fats
 electrolytesS = [
+		(5, naClI),
+		(7, kCitrate),
+		(2, ca2CO3)
+	]
+electrolytesClS = [
 		(4, naClI),
 		(3, kCl),
 		(2, ca2CO3)
 	]
-seNutsS = (7, brazilNuts)
-defaultS selenium = electrolytesS ++ [
-		selenium,
+pharmaS = [
 		(1, aerovit), -- one pill
 		(0.024, vigantol)] -- one drop
+seNutsS = (7, brazilNuts)
+kSelenateS = (250e-6, kSelenate)
+defaultS selenium = selenium : electrolytesS ++ pharmaS
 
 simpleR bulk selenium = (plantM fatsOilsM bulk, defaultS selenium)
 
 mixes = [
 		("default", simpleR oat seNutsS),
+		("l29ah", (plantM fatsOilsM oat, kSelenateS : electrolytesClS ++ pharmaS)),
 		("gluten-free", simpleR buckwheat seNutsS),
 		("funny-weed", ([
 			(0.57, oat),
@@ -268,7 +285,7 @@ report rec = putStr $ let [
 		("Selenium", se),
 		("Copper", cu),
 		("Chromium (*)", cr),
-		("Manganese", mn),
+		("Manganese (*)", mn),
 		("Molybdenum (*)", mo),
 		("Chlorine", cl),
 		("Fluoride (*)", fl),
