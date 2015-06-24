@@ -201,6 +201,7 @@ electrolytesClS = [
 		(2, ca2CO3)
 	]
 pharmaS = [
+		(0.3, ascorbicAcid),
 		(1, aerovit), -- one pill
 		(0.024, vigantol)] -- one drop
 seNutsS = (7, brazilNuts)
@@ -291,7 +292,7 @@ report rec = putStr $ let [
 		("Fluoride (*)", fl),
 
 		("Vitamin A", vA),
-		("Vitamin C", vC),
+		("Vitamin C (*)", vC),
 		("Vitamin D (*)", vD),
 		("Vitamin E", vE),
 		("Vitamin K", vK),
