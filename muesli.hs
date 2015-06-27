@@ -171,6 +171,13 @@ iomdriul = ck		[nan,	nan,	nan,	nan,
 	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,
 	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan]
 
+-- the difference against iom rda
+lpi = ck		[nan,	nan,	nan,	nan,
+	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,
+	nan,	0.4,	50e-6,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,
+	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,
+	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan]
+
 
 -- Specify the mix
 -- Syntax: (
@@ -203,7 +210,7 @@ electrolytesClS = [
 pharmaS = [
 		(0.3, ascorbicAcid),
 		(1, aerovit), -- one pill
-		(0.024, vigantol)] -- one drop
+		(0.096, vigantol)] -- four drops on days w/o half an hour of uvb light exposure
 seNutsS = (7, brazilNuts)
 kSelenateS = (250e-6, kSelenate)
 defaultS selenium = selenium : electrolytesS ++ pharmaS
@@ -236,7 +243,7 @@ norm p = map (* (2000 / (cal $ tail p))) p
 -- Compare the mix against the reference
 comp p ref = zipWith (/) p ref
 
-tbl rec = map (supplements rec $ mix rec) [replicate (sz + 1) 1, рсн, fdardi, iomdrirda, iomdriul]
+tbl rec = map (supplements rec $ mix rec) [replicate (sz + 1) 1, рсн, fdardi, iomdrirda, iomdriul, lpi]
 
 -- Some pretty-printing
 printMass :: Double -> String
@@ -267,9 +274,9 @@ report rec = putStr $ let [
 				his, ile, leu, lys, met, phe, thr, trp, val,
 				ala, arg, asn, asp, cys, glu, gln, gly, orn, pro, sel, ser, tyr
 				] = map (\(x:xs) -> x : map (* 100) xs) $ transpose $ tbl rec in
-	(printf "%-26s %14s %7s %7s %7s %7s\n" "" "mass" "РСН" "FDA RDI" "DRI RDA" "DRI UL") ++
+	(printf "%-26s %14s %7s %7s %7s %7s %7s\n" "" "mass" "РСН" "FDA RDI" "DRI RDA" "LPI" "DRI UL") ++
 	printf "%-26s %11.0f  g\n" "Total weight" (head w) ++
-	concatMap (\(a, [w, b, c, d, e]) -> printf "%-26s %14s %s %s %s %s\n" a (printMass w) (printPercent good b) (printPercent good c) (printPercent good d) (printPercent bad e)) [
+	concatMap (\(a, [w, b, c, d, e, lpi]) -> printf "%-26s %14s %s %s %s %s %s\n" a (printMass w) (printPercent good b) (printPercent good c) (printPercent good d) (printPercent good lpi) (printPercent bad e)) [
 		("Protein", pr),
 		("Fat", fa),
 		("Carbohydrates", carb),
