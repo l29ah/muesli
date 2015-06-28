@@ -30,9 +30,9 @@ pills = map (* 100)
 -- vita:a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,	choline,omega3,	omega6,
 -- e aa:His,	Ile,	Leu,	Lys,	Met,	Phe,	Thr,	Trp,	Val,
 -- o aa:Ala,	Arg,	Asn,	Asp,	Cys,	Glu,	Gln,	Gly,	Orn,	Pro,	Sel,	Ser,	Tyr)
-raisins = ck		[3,	0.5,	79,	5,	-- USDA 2446 + http://www.whfoods.com/genpage.php?tname=nutrientprofile&dbid=24
+raisins = ck		[3,	0.5,	79,	5,	-- USDA 09299 + http://www.whfoods.com/genpage.php?tname=nutrientprofile&dbid=24 + 09298
 	0.773,	0.017,	0.044,	0.032,	0.097,	2.1e-3,	idk,	240e-6,	0.63e-6,328e-6,	idk,	0.29e-3,idk,	idk,	220e-6,
-	0,	3.6e-3,	0,	120e-6,	3.5e-6,	75e-6,	166e-6,	1e-3,	93e-6,	228e-6,	2e-6,	3.7e-6,	0,	idk,	0,	1e-3,
+	0,	3.6e-3,	0,	120e-6,	3.5e-6,	75e-6,	166e-6,	1e-3,	93e-6,	228e-6,	2e-6,	3.7e-6,	0,	11.1e-3,0,	1e-3,
 	7.20e-2,	5.70e-2,	9.60e-2,8.40e-2,	7.70e-2,	6.50e-2,	7.70e-2,	5.00e-2,	8.30e-2,	1.05e-1,	4.13e-1,	idk,	1.10e-1,	1.90e-2,	1.64e-1,	idk,	8.00e-2,	idk,	2.54e-1,	idk,	7.00e-2,	1.20e-2]
 sunflowerKernel = ck	[19,	53,	23,	11,	-- USDA 12036
 	0.608,	0.24,	0.071,	0.128,	1.2,	3.7e-3,	0,	5e-3,	53e-6,	1.8e-3,	idk,	1.95e-3,idk,	idk,	todo,
@@ -139,6 +139,12 @@ aerovit = pills $ ck	[0,	0,	0,	0,
 	2e-3,	0.1,	0,	20e-3,	0,	2e-3,	2e-3,	15e-3,	9.2e-3,	10e-3,	0,	0.2e-3,	25e-6,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
+cholineBitartrate = ck	[0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	41.1,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
+
 
 -- daily intakes, g at 2Mcal
 fdardi = ck		[50,	65,	300,	25,
@@ -202,6 +208,7 @@ electrolytesClS = [
 	]
 pharmaS = [
 		(0.3, ascorbicAcid),
+		(1, cholineBitartrate),
 		(1, aerovit), -- one pill
 		(0.096, vigantol)] -- four drops on days w/o half an hour of uvb light exposure
 seNutsS = (7, brazilNuts)
