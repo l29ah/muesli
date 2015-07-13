@@ -210,7 +210,7 @@ pharmaS = [
 		(0.3, ascorbicAcid),
 		(1, cholineBitartrate),
 		(1, aerovit), -- one pill
-		(0.096, vigantol)] -- four drops on days w/o half an hour of uvb light exposure
+		(0.336, vigantol)] -- seven drops on days w/o at least half an hour of uvb light exposure
 seNutsS = (7, brazilNuts)
 kSelenateS = (250e-6, kSelenate)
 defaultS selenium = selenium : electrolytesS ++ pharmaS

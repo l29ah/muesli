@@ -36,21 +36,21 @@ The result resemble this:
   * http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
 * Chloride
   * http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
-* Upper level intake
-  * Manganese
-    * Opinion of the scientific committee on food on the tolerable upper intake level of manganese 19.10.2009
-      * manganese supplements are evil but no evidence of any damage from excessive intake from the food sources in diets of up to 20mg daily
-    * http://discourse.soylent.com/t/have-you-asked-yourself-why-upper-limit-of-manganese-is-11mg-day/7660
-  * Chloride
-    * it can be bypassed relatively safely as it seems it only increases the blood pressure somewhat in this dose range
+* Manganese
+  * Opinion of the scientific committee on food on the tolerable upper intake level of manganese 19.10.2009
+    * manganese supplements are evil but no evidence of any damage from excessive intake from the food sources in diets of up to 20mg daily
+  * http://discourse.soylent.com/t/have-you-asked-yourself-why-upper-limit-of-manganese-is-11mg-day/7660
+* Chloride
+  * it can be bypassed relatively safely as it seems it only increases the blood pressure somewhat in this dose range
 * Vitamin K
   * green veggies
 * Vitamin C
   * http://ajcn.nutrition.org/content/69/6/1086
 * Vitamin D
-  * sunlight
-  * supplements only, basically
+  * comes from sunlight and supplements only, basically
   * 1µg = 40IU
+  * http://www.sciencedaily.com/releases/2015/03/150317122458.htm
+  * http://www.grassrootshealth.net/garland02-11
 * Biotin
   * Produced by body and generally abundant
   * https://en.wikipedia.org/wiki/Biotin_deficiency
