@@ -2,7 +2,7 @@
 
 A muesli calculator. Brought up because i'm not much into oocalc or smth and hope to write some clever algo to sort the mix out for me.
 
-This project aims to provide one with fullfilling and easy to make food that needs to be chewed considerably to be consumed to trigger the corresponding digestive responses in one's body. There also were ideas about making it less bland for people unused to spice-free food, but i concluded it's quite individual stuff; i found garlic and chili powder doing the job. It consumes about $1 and 15mins per day, excluding the research, for me.
+This project aims to provide one with fullfilling and easy to make food that needs to be chewed considerably to be consumed to trigger the corresponding digestive responses in one's body. There also were ideas about making it less bland for people unused to spice-free food, but i concluded it's quite individual stuff; i found garlic and chili powder doing the job. It consumes about $1 and 15mins per day, excluding the research, for me. I believe in dogfooding, so you can check out the recipe i'm using at the moment by hitting `./muesli.hs l29ah`.
 
 ## Prerequisites:
 
@@ -12,11 +12,11 @@ This project aims to provide one with fullfilling and easy to make food that nee
 ## Usage:
 
 ```
-$ cabal run
+$ cabal run default
 ```
 OR
 ```
-$ ./muesli.hs
+$ ./muesli.hs default
 ```
 
 The result resemble this:
@@ -36,12 +36,11 @@ The result resemble this:
   * http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
 * Chloride
   * http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
+  * the upper limit can be bypassed relatively safely as it seems it only increases the blood pressure somewhat in this dose range
 * Manganese
   * Opinion of the scientific committee on food on the tolerable upper intake level of manganese 19.10.2009
     * manganese supplements are evil but no evidence of any damage from excessive intake from the food sources in diets of up to 20mg daily
   * http://discourse.soylent.com/t/have-you-asked-yourself-why-upper-limit-of-manganese-is-11mg-day/7660
-* Chloride
-  * it can be bypassed relatively safely as it seems it only increases the blood pressure somewhat in this dose range
 * Vitamin K
   * green veggies
 * Vitamin C
@@ -51,6 +50,7 @@ The result resemble this:
   * 1µg = 40IU
   * http://www.sciencedaily.com/releases/2015/03/150317122458.htm
   * http://www.grassrootshealth.net/garland02-11
+  * http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1470481/
 * Biotin
   * Produced by body and generally abundant
   * https://en.wikipedia.org/wiki/Biotin_deficiency
@@ -67,3 +67,6 @@ The result resemble this:
     * http://www.ncbi.nlm.nih.gov/pubmed/8897754
   * Seems to induce dental fluorosis at recommended dosages
     * http://www.ncbi.nlm.nih.gov/pubmed/2129630
+* Choline
+  * synthesized by body in small amounts
+  * i didn't observe the signs of deficiency myself although being low on it for like the whole life; tried refilling it with eggs, didn't notice anything interesting

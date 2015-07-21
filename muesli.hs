@@ -124,9 +124,9 @@ ascorbicAcid = ck	[0,	0,	0,	0,
 	0,	100,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
-vigantol = ck		[0,	99.947,	0,	0,
+d3 = ck			[0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
-	0,	0,	0.0532,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	100,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0]
 retinol = ck		[0,	96.04,	0,	0,
@@ -206,11 +206,12 @@ electrolytesClS = [
 		(3, kCl),
 		(2, ca2CO3)
 	]
-pharmaS = [
+myPharmaS = [
 		(0.3, ascorbicAcid),
-		(1, cholineBitartrate),
 		(1, aerovit), -- one pill
-		(0.336, vigantol)] -- seven drops on days w/o at least half an hour of uvb light exposure
+		(125e-6, d3) -- ten drops of vigantol on days w/o at least half an hour of good uvb light exposure
+	]
+pharmaS = (1, cholineBitartrate) : myPharmaS
 seNutsS = (7, brazilNuts)
 kSelenateS = (250e-6, kSelenate)
 defaultS selenium = selenium : electrolytesS ++ pharmaS
@@ -220,7 +221,7 @@ simpleR bulk selenium = (plantM fatsOilsM bulk, defaultS selenium)
 mixes = [
 		("default", simpleR oat seNutsS),
 		("nutty", (plantM fatsM oat, seNutsS : electrolytesClS ++ pharmaS)),
-		("l29ah", (plantM fatsOilsM oat, kSelenateS : electrolytesClS ++ pharmaS)),
+		("l29ah", (plantM fatsOilsM oat, kSelenateS : electrolytesClS ++ myPharmaS)),
 		("gluten-free", simpleR buckwheat seNutsS),
 		("funny-weed", ([
 			(0.57, oat),
