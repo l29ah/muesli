@@ -72,6 +72,8 @@ flaxseedOil = ck	-- USDA 42231
 	0.00e0,	idk,	0.00e0,	4.70e-4,9.30e-6,0.00e0,	0.00e0,	0.00e0,	idk,	0.00e0,	idk,	0.00e0,	0.00e0,	0.2e-3, 5.34e1,	1.43e1,
 	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,
 	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk]
+eggHardboiled = ck	-- USDA 01129
+			[12.58e0,	10.61e0,	1.12e0,	0.0e0,	126e-3,	124e-3,	50e-3,	10e-3,	172e-3,	1.19e-3,	idk,	1.05e-3,	30.8e-6,	0.013e-3,	idk,0.026e-3,	idk,	idk,	4.8e-6,	149e-6,	0.0e-3,	2.2e-6,	1.03e-3,	0.3e-6,	0.066e-3,	0.513e-3,	0.064e-3,	1.398e-3,	0.121e-3,	idk,	44e-6,	1.11e-6,	293.8e-3,	idk,	idk,	0.298e0,	0.686e0,	1.075e0,	0.904e0,	0.604e0,	0.668e0,	0.604e0,	0.153e0,	0.767e0,	0.700e0,	0.755e0,	idk,	1.264e0,	0.292e0,	1.644e0,	idk,	0.423e0,	idk,	0.501e0,	idk,	0.936e0,	0.513e0]
 
 naCl = ck		[0,	0,	0,	0,
 	0,	39.32,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	60.68,	0,
@@ -177,7 +179,7 @@ lpi = ck		[nan,	nan,	nan,	nan,
 	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,
 	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan,	nan]
 
-
+attenuate l z = map (\(x, y) -> (x * z, y)) l
 -- Specify the mix
 -- Syntax: (
 -- 	[(fraction, product)],	-- meals
@@ -221,7 +223,8 @@ simpleR bulk selenium = (plantM fatsOilsM bulk, defaultS selenium)
 mixes = [
 		("default", simpleR oat seNutsS),
 		("nutty", (plantM fatsM oat, seNutsS : electrolytesClS ++ pharmaS)),
-		("l29ah", (plantM fatsOilsM oat, kSelenateS : electrolytesClS ++ myPharmaS)),
+		("l29ah", ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7, kSelenateS : electrolytesClS ++ myPharmaS)),
+		("l29ah-cholinefree", (plantM fatsOilsM oat, kSelenateS : electrolytesClS ++ myPharmaS)),
 		("gluten-free", simpleR buckwheat seNutsS),
 		("funny-weed", ([
 			(0.57, oat),
