@@ -70,3 +70,9 @@ The result resemble this:
 * Choline
   * synthesized by body in small amounts
   * i didn't observe the signs of deficiency myself although being low on it for like the whole life; tried refilling it with eggs, didn't notice anything interesting
+* Polyunsaturated fatty acids
+  * http://www.sciencedirect.com/science/article/pii/S016378271300057X
+  * n-3
+    * http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
+    * DHA
+      * brain (at least early and elderly); produced in small quantites from ALA in young females only

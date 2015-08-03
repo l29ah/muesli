@@ -65,6 +65,10 @@ flaxseedOil = ck	-- USDA 42231
 			[0.11e0,	99.98e0,	0.00e0,	0.0e0,	0e-3,	0e-3,	1e-3,	0e-3,	1e-3,	0.00e-3,	idk,	0.07e-3,	0.0e-6,	0.000e-3,	idk,	0.000e-3,	idk,	idk,	idk,	0e-6,	0.0e-3,	0.0e-6,0.47e-3,	9.3e-6,	0.000e-3,	0.000e-3,	0.000e-3,	idk,	0.000e-3,	idk,	0e-6,	0.00e-6,	0.2e-3,	53.368,	14.246,
 	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,
 	53.368e0,	0.000e0,	0.000e0,	0.000e0,	14.246e0,	0.000e0,	idk]
+fishOilCodLiver = ck	-- USDA 04589
+			[0.00e0,	100.00e0,	0.00e0,	0.0e0,	0e-3,	0e-3,	0e-3,	0e-3,	0e-3,	0.00e-3,	idk,	0.00e-3,	0.0e-6,	0.000e-3,	idk,	0.000e-3,	idk,idk,	idk,	30000e-6,	0.0e-3,	250.0e-6,	idk,	idk,	idk,	0.000e-3,	0.000e-3,	0.000e-3,	0.000e-3,	idk,	0e-6,	0.00e-6,	idk,	18.801000000000002,	0.0,
+	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,	idk,
+	idk,	6.898e0,	0.935e0,	10.968e0,	idk,	idk,	idk]
 eggHardboiled = ck	-- USDA 01129
 			[12.58e0,	10.61e0,	1.12e0,	0.0e0,	126e-3,	124e-3,	50e-3,	10e-3,	172e-3,	1.19e-3,	idk,	1.05e-3,	30.8e-6,	0.013e-3,	idk,	0.026e-3,	idk,	idk,	4.8e-6,	149e-6,0.0e-3,	2.2e-6,	1.03e-3,	0.3e-6,	0.066e-3,	0.513e-3,	0.064e-3,	1.398e-3,	0.121e-3,	idk,	44e-6,	1.11e-6,293.8e-3,	4.3e-2,	0.0,
 	0.298e0,	0.686e0,	1.075e0,	0.904e0,	0.604e0,0.668e0,	0.604e0,	0.153e0,	0.767e0,	0.700e0,0.755e0,	idk,	1.264e0,	0.292e0,	1.644e0,	idk,	0.423e0,	idk,	0.501e0,	idk,	0.936e0,	0.513e0,
@@ -200,12 +204,12 @@ attenuate l z = map (\(x, y) -> (x * z, y)) l
 -- 	[(grams, product)]	-- supplements
 -- 	)
 fatsOilsM = [
-		(0.115, sunflowerOil),
-		(0.015, flaxseedOil)
+		(0.065, sunflowerOil),
+		(0.025, flaxseedOil)
 	]
 plantM fats bulk = [
-		(0.67, bulk),
-		(0.18, raisins),
+		(0.695, bulk),
+		(0.195, raisins),
 		(0.02, parsleyDried)
 	] ++ fats
 electrolytesS = [
@@ -220,6 +224,7 @@ electrolytesClS = [
 	]
 myPharmaS = [
 		(0.3, ascorbicAcid),
+		(3, fishOilCodLiver),
 		(1, aerovit), -- one pill
 		(125e-6, d3) -- ten drops of vigantol on days w/o at least half an hour of good uvb light exposure
 	]
