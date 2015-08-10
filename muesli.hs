@@ -237,8 +237,8 @@ simpleR bulk selenium = (plantM fatsOilsM bulk, defaultS selenium)
 
 mixes = [
 		("default", simpleR oat seNutsS),
-		("l29ah", ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7, kSelenateS : electrolytesClS ++ myPharmaS)),
-		("l29ah-cholinefree", (plantM fatsOilsM oat, kSelenateS : electrolytesClS ++ myPharmaS)),
+		("l29ah", (plantM fatsOilsM oat, kSelenateS : electrolytesClS ++ myPharmaS)),
+		("l29ah-choline", ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7, kSelenateS : electrolytesClS ++ myPharmaS)),
 		("gluten-free", simpleR buckwheat seNutsS)
 	]
 

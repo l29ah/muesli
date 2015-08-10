@@ -69,7 +69,7 @@ The result resemble this:
     * http://www.ncbi.nlm.nih.gov/pubmed/2129630
 * Choline
   * synthesized by body in small amounts
-  * i didn't observe the signs of deficiency myself although being low on it for like the whole life; tried refilling it with eggs, didn't notice anything interesting
+  * i didn't observe the signs of deficiency myself although being low on it for like the whole life; tried refilling it with eggs for two weeks, didn't notice anything interesting
 * Polyunsaturated fatty acids
   * http://www.sciencedirect.com/science/article/pii/S016378271300057X
   * n-3
