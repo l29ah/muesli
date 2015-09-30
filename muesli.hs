@@ -153,6 +153,12 @@ aerovit = pills $ ck	[0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0]
+undevit = pills $ ck	[0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	1e-3,	75e-3,	0,	10e-3,	0,	2e-3,	2e-3,	20e-3,	3e-3,	3e-3,	0,	70e-6,	2e-6,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0]
 cholineBitartrate = ck	[0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	41.1,	0,	0,
@@ -225,7 +231,7 @@ electrolytesClS = [
 myPharmaS = [
 		(0.3, ascorbicAcid),
 		(3, fishOilCodLiver),
-		(1, aerovit), -- one pill
+		(2, undevit), -- two pills
 		(125e-6, d3) -- ten drops of vigantol on days w/o at least half an hour of good uvb light exposure
 	]
 pharmaS = (1, cholineBitartrate) : myPharmaS

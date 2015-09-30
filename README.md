@@ -41,6 +41,8 @@ The result resemble this:
   * Opinion of the scientific committee on food on the tolerable upper intake level of manganese 19.10.2009
     * manganese supplements are evil but no evidence of any damage from excessive intake from the food sources in diets of up to 20mg daily
   * http://discourse.soylent.com/t/have-you-asked-yourself-why-upper-limit-of-manganese-is-11mg-day/7660
+* Vitamin A
+  * 1 IU = 300ng of retinol
 * Vitamin K
   * green veggies
 * Vitamin C
@@ -72,7 +74,9 @@ The result resemble this:
   * i didn't observe the signs of deficiency myself although being low on it for like the whole life; tried refilling it with eggs for two weeks, didn't notice anything interesting
 * Polyunsaturated fatty acids
   * http://www.sciencedirect.com/science/article/pii/S016378271300057X
+  * http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
   * n-3
     * http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
+    * http://ajcn.nutrition.org/content/83/6/S1483.long
     * DHA
       * brain (at least early and elderly); produced in small quantites from ALA in young females only
