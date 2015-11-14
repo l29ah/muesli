@@ -104,6 +104,12 @@ kCitrate = ck		[0,	0,	0,	0,	-- K3C6H5O7
 	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0]
+kCitrateH2O = ck	[0,	0,	0,	0,	-- K3C6H7O8
+	36.111,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
+	0,	0,	0,	0,	0,	0,	0]
 kSelenate = ck		[0,	0,	0,	0,	-- K2SeO4
 	35.294,	0,	0,	0,	0,	0,	0,	0,	35.747,	0,	0,	0,	0,	0,	0,
 	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,
@@ -220,7 +226,7 @@ plantM fats bulk = [
 	] ++ fats
 electrolytesS = [
 		(5, naClI),
-		(7, kCitrate),
+		(7, kCitrateH2O),
 		(2, ca2CO3)
 	]
 electrolytesClS = [
@@ -243,7 +249,7 @@ simpleR bulk selenium = (plantM fatsOilsM bulk, defaultS selenium)
 
 mixes = [
 		("default", simpleR oat seNutsS),
-		("l29ah", (plantM fatsOilsM oat, kSelenateS : electrolytesClS ++ myPharmaS)),
+		("l29ah", (plantM fatsOilsM oat, kSelenateS : electrolytesS ++ myPharmaS)),
 		("l29ah-choline", ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7, kSelenateS : electrolytesClS ++ myPharmaS)),
 		("gluten-free", simpleR buckwheat seNutsS)
 	]
