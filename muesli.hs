@@ -232,14 +232,14 @@ electrolytesS = [
 electrolytesClS = [
 		(4, naClI),
 		(3, kCl),
-		(2, ca2CO3)
+		(2, caCl)
 	]
-myPharmaS = [
+pPharmaS = [
 		(0.3, ascorbicAcid),
-		(3, fishOilCodLiver),
 		(2, undevit), -- two pills
 		(125e-6, d3) -- ten drops of vigantol on days w/o at least half an hour of good uvb light exposure
 	]
+myPharmaS = (3, fishOilCodLiver) : pPharmaS
 pharmaS = (1, cholineBitartrate) : myPharmaS
 seNutsS = (7, brazilNuts)
 kSelenateS = (250e-6, kSelenate)
@@ -251,7 +251,8 @@ mixes = [
 		("default", simpleR oat seNutsS),
 		("l29ah", (plantM fatsOilsM oat, kSelenateS : electrolytesS ++ myPharmaS)),
 		("l29ah-choline", ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7, kSelenateS : electrolytesClS ++ myPharmaS)),
-		("gluten-free", simpleR buckwheat seNutsS)
+		("gluten-free", simpleR buckwheat seNutsS),
+		("r2", (plantM fatsOilsM buckwheat, kSelenateS : electrolytesS ++ pPharmaS))
 	]
 
 mix rec = map sum $ transpose $ map (\(frac, l) -> map (frac *) l) $ fst rec
