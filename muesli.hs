@@ -301,9 +301,9 @@ report rec = putStr $ let [
 				ala, arg, asn, asp, cys, glu, gln, gly, orn, pro, sel, ser, tyr,
 				alaa, epa, dpa, dha, la, gla, aa
 				] = map (\(x:xs) -> x : map (* 100) xs) $ transpose $ tbl rec in
-	(printf "%-26s %14s %7s %7s %7s %7s %7s\n" "" "mass" "РСН" "FDA RDI" "DRI RDA" "LPI" "DRI UL") ++
-	printf "%-26s %11.0f  g\n" "Total weight" (head w) ++
-	concatMap (\(a, [w, b, c, d, e, lpi]) -> printf "%-26s %14s %s %s %s %s %s\n" a (printMass w) (printPercent good b) (printPercent good c) (printPercent good d) (printPercent good lpi) (printPercent bad e)) [
+	(printf "%-26s %14s %7s %7s %7s %7s %7s\n" ("" :: String) ("mass" :: String) ("РСН" :: String) ("FDA RDI" :: String) ("DRI RDA" :: String) ("LPI" :: String) ("DRI UL" :: String)) ++
+	printf "%-26s %11.0f  g\n" ("Total weight" :: String) (head w) ++
+	concatMap (\(a, [w, b, c, d, e, lpi]) -> printf "%-26s %14s %s %s %s %s %s\n" a (printMass w) (printPercent good b) (printPercent good c) (printPercent good d) (printPercent good lpi) (printPercent bad e)) ([
 		("Protein", pr),
 		("Fat", fa),
 		("Carbohydrates", carb),
@@ -373,7 +373,7 @@ report rec = putStr $ let [
 		("LA (18:2 n-6)", la),
 		("GLA (18:3 n-6)", gla),
 		("AA (20:4 n-6)", aa)
-		] ++
+		] :: [(String, [Double])]) ++
 	"(*) - see README\n" ++
 	"(<letter>) - specified as the sum of components in IOM RDA\n"
 
