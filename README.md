@@ -7,14 +7,10 @@ This project aims to provide one with fullfilling and easy to make food that nee
 ## Prerequisites:
 
 * ghc
-* ansi-terminal [available in hackage, install via cabal]
+* ansi-terminal, fixed-vector [available in hackage, install via cabal]
 
 ## Usage:
 
-```
-$ cabal run default
-```
-OR
 ```
 $ ./muesli.hs default
 ```
