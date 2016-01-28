@@ -2,6 +2,7 @@
 {-# LANGUAGE TemplateHaskell, DataKinds, FlexibleContexts #-}
 {-# OPTIONS_GHC -fno-warn-tabs #-}
 import Control.Exception
+import Control.Monad
 import Data.List
 import Data.Maybe
 import Data.Vector.Fixed ((<|), (!))
@@ -9,6 +10,7 @@ import qualified Data.Vector.Fixed as F
 import Data.Vector.Fixed.Boxed as V
 import Data.Vector.Fixed.Cont (ToPeano(..))
 import System.Console.ANSI
+import System.Console.GetOpt
 import System.Environment
 import Text.Printf
 
@@ -339,7 +341,8 @@ printPercent schema x
 colorify :: (Double -> Color) -> Double -> String -> String
 colorify schema x s =
 		concat [
-			setSGRCode [SetColor Foreground Vivid (schema x)],
+			setSGRCode [SetConsoleIntensity BoldIntensity, -- to be parseable by ansi2html and vivid in a real terminal emulator
+				SetColor Foreground Dull (schema x)],
 			s,
 			setSGRCode [Reset]]
 
@@ -428,7 +431,7 @@ report rec = let [
 		("AA (20:4 n-6)", aa)
 		] :: [(String, [Double])]) ++
 	"(*) - see README\n" ++
-	"(<letter>) - specified as the sum of components in IOM RDA\n"
+	"(<letter>) - specified as the sum of components in IOM RDA"
 
 printRecipeItem :: (Amount, Source) -> String
 printRecipeItem (amount, (Source name cmp)) = printf "%-26s %14s\n" name (if isPill cmp then show amount else printMass $ amount * sServingMass cmp)
@@ -441,14 +444,22 @@ usage = do
 	pn <- getProgName
 	putStr $ "Usage: " ++ pn ++ " <recipe name>\navailable recipes:\n\n" ++ (unlines $ map fst $ recipes)
 
+data Flag = FReport deriving (Eq, Show)
+
+options :: [OptDescr Flag]
+options =
+	[ Option ['r']	["--report"]	(NoArg	FReport)	"print the nutrients report table"
+	]
 
 main = do
 	args <- getArgs
+	let (opts, strings, errs) = getOpt RequireOrder options args
 	fromMaybe usage $ do
-		recipename <- listToMaybe args
+		recipename <- listToMaybe strings
 		rec <- lookup recipename recipes
 		let nrec = normalizeRecipe rec
 		return $ do
 			putStrLn $ report nrec
-			putStrLn $ printRecipe nrec
-			putStrLn $ "Approximate mass: " ++ (printMass $ sum $ map (\(amount, (Source _ cmp)) -> if isPill cmp then amount else amount * sServingMass cmp) $ fromRecipe nrec)
+			when (opts == []) $ putStrLn $ '\n' :
+				(printRecipe nrec) ++
+				("\nApproximate mass: " ++ (printMass $ sum $ map (\(amount, (Source _ cmp)) -> if isPill cmp then amount else amount * sServingMass cmp) $ fromRecipe nrec))
