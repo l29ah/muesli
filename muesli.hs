@@ -264,6 +264,7 @@ lpi = F.vector $
 	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
 	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥F.empty
 
+attenuate :: [(Amount, Source)] -> Double -> [(Amount, Source)]
 attenuate l z = map (\(x, y) -> (x * z, y)) l
 
 -- Specify the mix
@@ -436,19 +437,20 @@ report rec = let [
 printRecipeItem :: (Amount, Source) -> String
 printRecipeItem (amount, (Source name cmp)) = printf "%-26s %14s\n" name (if isPill cmp then show amount else printMass $ amount * sServingMass cmp)
 
-printRecipe :: Recipe -> String
-printRecipe r = "Daily recipe:\n" ++
-	(concatMap printRecipeItem $ fromRecipe r)
+printRecipe :: Recipe -> Double -> String
+printRecipe r days = "Recipe for " ++ show days ++ " days:\n" ++
+	(concatMap printRecipeItem  $ attenuate (fromRecipe r) days)
 
 usage = do
 	pn <- getProgName
 	putStr $ "Usage: " ++ pn ++ " <recipe name>\navailable recipes:\n\n" ++ (unlines $ map fst $ recipes)
 
-data Flag = FReport deriving (Eq, Show)
+data Flag = FReport | FDays Double deriving (Eq, Show)
 
 options :: [OptDescr Flag]
 options =
-	[ Option ['r']	["--report"]	(NoArg	FReport)	"print the nutrients report table"
+	[ Option ['r']	["--report"]	(NoArg	FReport)		"print the nutrients report table"
+	, Option ['d']	["--days"]	(ReqArg (FDays . read) "DAYS")	"print the sources' masses counted for DAYS of consumption"
 	]
 
 main = do
@@ -460,6 +462,7 @@ main = do
 		let nrec = normalizeRecipe rec
 		return $ do
 			putStrLn $ report nrec
-			when (opts == []) $ putStrLn $ '\n' :
-				(printRecipe nrec) ++
-				("\nApproximate mass: " ++ (printMass $ sum $ map (\(amount, (Source _ cmp)) -> if isPill cmp then amount else amount * sServingMass cmp) $ fromRecipe nrec))
+			let days = maybe 1 (\(FDays d) -> d) $ find (\x -> case x of FDays _ -> True; _ -> False) opts
+			when (notElem FReport opts) $ putStrLn $ '\n' :
+				(printRecipe nrec days) ++
+				("\nApproximate mass: " ++ (printMass $ (days *) $ sum $ map (\(amount, (Source _ cmp)) -> if isPill cmp then amount else amount * sServingMass cmp) $ fromRecipe nrec))
