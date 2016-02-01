@@ -1,6 +1,9 @@
 #!/usr/bin/runhaskell
 {-# LANGUAGE TemplateHaskell, DataKinds, FlexibleContexts #-}
 {-# OPTIONS_GHC -fno-warn-tabs #-}
+
+module Muesli where
+
 import Control.Exception
 import Control.Monad
 import Data.List

@@ -9,8 +9,8 @@ Build-Type:     Simple
 Cabal-Version:  >= 1.2
 Tested-With:    GHC == 7.10.1
 
-Executable      muesli
-        Main-is:        muesli.hs
+Executable      Muesli
+        Main-is:        Muesli.hs
         ghc-options:    -fno-warn-tabs
         Build-depends:
                         base >= 4 && < 5,

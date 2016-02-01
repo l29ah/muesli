@@ -12,7 +12,7 @@ This project aims to provide one with fullfilling and easy to make food that nee
 ## Usage:
 
 ```
-$ ./muesli.hs default
+$ ./Muesli.hs default
 ```
 
 The result resemble this:
