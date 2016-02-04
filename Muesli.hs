@@ -87,11 +87,15 @@ sumNutrients as = foldl (\tsum (amount, (Source _ comp)) -> F.zipWith (+) tsum $
 energyMultiplier :: Nutrients -> Double
 energyMultiplier n = energy / (cal n)
 
+pills :: Recipe -> [(Amount, Source)]
+pills r = filter (isPill . sComponent . snd) $ rFoods r
+substances :: Recipe -> [(Amount, Source)]
+substances r = filter (not . isPill . sComponent . snd) $ rFoods r
+
+
 normalizeRecipe :: Recipe -> Recipe
-normalizeRecipe r = let	pills = filter (isPill . sComponent . snd) $ rFoods r
-			substances = filter (not . isPill . sComponent . snd) $ rFoods r
-			mult = energyMultiplier $ sumNutrients $ substances in
-		Recipe ((map (\(amount, source) -> (mult * amount, source)) substances) ++ pills) $ rSupplements r
+normalizeRecipe r = let	mult = energyMultiplier $ sumNutrients $ substances r in
+		Recipe ((map (\(amount, source) -> (mult * amount, source)) (substances r)) ++ (pills r)) $ rSupplements r
 
 -- nuts:prote,	fat,	carbs,	fiber,
 -- elem:potass,	sodium,	calciu,	magnes,	phosph,	iron,	iodine,	zinc,	seleni,	copper,	chromi,	mangane,molybde,chlorid,fluoride,
@@ -218,10 +222,31 @@ d3 = Source "d3" $ Substance 100 $ F.vector $
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥F.empty
+vigantol = Source "vigantol" $ Pill $ F.vector $
+	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	12.5e-6♥0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥F.empty
+nowD35000 = Source "nowd3-5000" $ Pill $ F.vector $
+	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	125e-6♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥F.empty
 cholineBitartrate = Source "cholinebitartrate" $ Substance 100 $ F.vector $
 	0♥	0♥	0♥	0♥
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	41.1♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥F.empty
+snK = Source "sourcenaturalsk" $ Pill $ F.vector $
+	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
+	0♥	0♥	0♥	0♥	0.5e-3♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥F.empty
@@ -298,24 +323,36 @@ electrolytesClS = [
 	]
 pPharmaS = [
 		(0.3/100, ascorbicAcid),
-		(2, undevit), -- two pills
-		(125e-6/100, d3) -- ten drops of vigantol on days w/o at least half an hour of good uvb light exposure
+		(2, undevit) -- two pills
 	]
 myPharmaS = (3/100, fishOilCodLiver) : pPharmaS
 pharmaS = (1/100, cholineBitartrate) : myPharmaS
 seNutsS = (7/100, brazilNuts)
 kSelenateS = (250e-6/100, kSelenate)
-defaultS selenium = selenium : electrolytesS ++ pharmaS
+vigantolS = (10, vigantol) -- ten drops of vigantol on days w/o at least half an hour of good uvb light exposure
+nowD3S = (1, nowD35000)
+defaultS selenium = nowD3S : selenium : electrolytesS ++ pharmaS
 
 simpleR bulk selenium = Recipe (plantM fatsOilsM bulk) (defaultS selenium)
 
 recipes :: [(RecipeName, Recipe)]
 recipes =
-	[("l29ah", Recipe (plantM fatsOilsM oat) (kSelenateS : electrolytesS ++ myPharmaS))
-	,("default", simpleR oat seNutsS)
-	,("l29ah-choline", Recipe ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7) (kSelenateS : electrolytesClS ++ myPharmaS))
+	[("l29ah", Recipe (plantM fatsOilsM oat) (vigantolS : kSelenateS : electrolytesS ++ myPharmaS))
+	,("l29ah-noparsley", Recipe
+		((0.705, oat)
+		:(0.205, raisins)
+		:fatsOilsM)
+
+		(vigantolS
+		:kSelenateS
+		:(1, snK)
+		:electrolytesS
+		++myPharmaS))
+	,("l29ah-choline", Recipe ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7) (vigantolS : kSelenateS : electrolytesClS ++ myPharmaS))
+	,("default", Recipe (plantM fatsOilsM oat) (nowD3S : kSelenateS : electrolytesClS ++ pPharmaS))
+	,("default-choline", simpleR oat kSelenateS)
 	,("gluten-free", simpleR buckwheat seNutsS)
-	,("r2", Recipe (plantM fatsOilsM buckwheat) (kSelenateS : electrolytesS ++ pPharmaS))
+	,("r2", Recipe (plantM fatsOilsM buckwheat) (nowD3S : kSelenateS : electrolytesS ++ pPharmaS))
 	]
 
 references :: [Nutrients]
