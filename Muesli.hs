@@ -82,7 +82,10 @@ amountify (Pill x) a = Pill $ F.map (* a) x
 amountify (Substance mass x) a = Substance (mass * a) $ F.map (* a) x
 
 sumNutrients :: [(Amount, Source)] -> Nutrients
-sumNutrients as = foldl (\tsum (amount, (Source _ comp)) -> F.zipWith (+) tsum $ getNutrients $ amountify comp amount) def as
+sumNutrients as = foldl (\tsum cnut -> F.zipWith (+) tsum cnut) def $ nutrientify as
+
+nutrientify :: [(Amount, Source)] -> [Nutrients]
+nutrientify as = map (\(amount, (Source _ comp)) -> getNutrients $ amountify comp amount) as
 
 energyMultiplier :: Nutrients -> Double
 energyMultiplier n = energy / (cal n)
