@@ -7,7 +7,7 @@ License-file:   LICENSE
 
 Build-Type:     Simple
 Cabal-Version:  >= 1.2
-Tested-With:    GHC == 7.10.1
+Tested-With:    GHC == 7.10.1, GHC == 8.0.1
 
 Executable      Muesli
         Main-is:        Muesli.hs
