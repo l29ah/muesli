@@ -10,7 +10,7 @@ Cabal-Version:  >= 1.2
 Tested-With:    GHC == 7.10.1, GHC == 8.0.1
 
 Executable      Muesli
-        Main-is:        Muesli.hs
+        Main-is:        Main.hs
         ghc-options:    -fno-warn-tabs
         Build-depends:
                         base >= 4 && < 5,
