@@ -95,7 +95,6 @@ pills r = filter (isPill . sComponent . snd) $ rFoods r
 substances :: Recipe -> [(Amount, Source)]
 substances r = filter (not . isPill . sComponent . snd) $ rFoods r
 
-
 normalizeRecipe :: Recipe -> Recipe
 normalizeRecipe r = let	mult = energyMultiplier $ sumNutrients $ substances r in
 		Recipe ((map (\(amount, source) -> (mult * amount, source)) (substances r)) ++ (pills r)) $ rSupplements r
@@ -340,10 +339,9 @@ simpleR bulk selenium = Recipe (plantM fatsOilsM bulk) (defaultS selenium)
 
 recipes :: [(RecipeName, Recipe)]
 recipes =
-	[("l29ah", Recipe (plantM fatsOilsM oat) (vigantolS : kSelenateS : electrolytesS ++ myPharmaS))
-	,("l29ah-noparsley", Recipe
-		((0.705, oat)
-		:(0.205, raisins)
+	[("l29ah", Recipe
+		((0.81, oat)
+		:(0.1, raisins)
 		:fatsOilsM)
 
 		(vigantolS
