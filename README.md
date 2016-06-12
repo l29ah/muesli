@@ -45,10 +45,9 @@ The result resemble this:
   * http://ajcn.nutrition.org/content/69/6/1086
 * Vitamin D
   * comes from sunlight and supplements only, basically
-  * 1µg = 40IU
+  * 1µg cholecalciferol = 40IU
   * http://www.sciencedaily.com/releases/2015/03/150317122458.htm
-  * http://www.grassrootshealth.net/garland02-11
-  * http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1470481/
+  * quite a lot of inconclusive studies regarding cancer
 * Biotin
   * Produced by body and generally abundant
   * https://en.wikipedia.org/wiki/Biotin_deficiency
