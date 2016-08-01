@@ -25,7 +25,8 @@ The result resemble this:
 * http://ndb.nal.usda.gov/ndb/search/list
 * http://lpi.oregonstate.edu/mic
 * Calcium
-  * http://ncp.sagepub.com/content/22/3/286.long
+  * [Calcium Supplementation in Clinical Practice: A Review of Forms, Doses, and Indications](http://ncp.sagepub.com/content/22/3/286.long)
+  * [Stimulates gastric acid secretion](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1411522/)
 * Potassium
   * http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
 * Sodium
