@@ -99,6 +99,9 @@ normalizeRecipe :: Recipe -> Recipe
 normalizeRecipe r = let	mult = energyMultiplier $ sumNutrients $ substances r in
 		Recipe ((map (\(amount, source) -> (mult * amount, source)) (substances r)) ++ (pills r)) $ rSupplements r
 
+-- USDA considers fiber a carbohydrate, we don't
+usda v = F.set (undefined :: ToPeano 2) ((F.index v (undefined :: ToPeano 2)) - (F.index v (undefined :: ToPeano 3))) v
+
 -- nuts:prote,	fat,	carbs,	fiber,
 -- elem:potass,	sodium,	calciu,	magnes,	phosph,	iron,	iodine,	zinc,	seleni,	copper,	chromi,	mangane,molybde,chlorid,fluoride,
 -- vita:a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,	choline,omega3,	omega6,
@@ -106,7 +109,7 @@ normalizeRecipe r = let	mult = energyMultiplier $ sumNutrients $ substances r in
 -- o aa:Ala,	Arg,	Asn,	Asp,	Cys,	Glu,	Gln,	Gly,	Orn,	Pro,	Sel,	Ser,	Tyr
 -- e fa:ALA,	EPA,	DPA,	DHA,	LA,	GLA,	AA
 --                               ↘per 100g
-raisins = Source "raisin" $ Substance 100 $ F.vector $
+raisins = Source "raisin" $ Substance 100 $ usda $ F.vector $
 	3♥	0.5♥	79♥	5♥	-- USDA 09299 + http://www.whfoods.com/genpage.php?tname=nutrientprofile&dbid=24 + 09298
 	0.773♥	0.017♥	0.044♥	0.032♥	0.097♥	2.1e-3♥	idk♥	240e-6♥	0.63e-6♥328e-6♥	idk♥	0.29e-3♥idk♥	idk♥	220e-6♥
 	0♥	3.6e-3♥	0♥	120e-6♥	3.5e-6♥	75e-6♥	166e-6♥	1e-3♥	93e-6♥	228e-6♥	2e-6♥	3.7e-6♥	0♥	11.1e-3♥0♥	1e-3♥
@@ -120,42 +123,42 @@ undevit = Source "undevit" $ Pill $ F.vector $
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥	0♥
 	0♥	0♥	0♥	0♥	0♥	0♥	0♥F.empty
-sunflowerOil = Source "sunfloweroil" $ Substance 100 $ F.vector $	-- USDA 04506, manually corrected assuming 18:2 is LA
+sunflowerOil = Source "sunfloweroil" $ Substance 100 $ usda $ F.vector $	-- USDA 04506, manually corrected assuming 18:2 is LA
 	0.00e0♥	100.00e0♥	0.00e0♥	0.0e0♥	0e-3♥	0e-3♥	0e-3♥	0e-3♥	0e-3♥	0.00e-3♥	idk♥	0.00e-3♥	0.0e-6♥	0.000e-3♥	idk♥	idk♥	idk♥	idk♥	idk♥	0e-6♥	0.0e-3♥	0.0e-6♥	41.08e-3♥	5.4e-6♥	0.000e-3♥	0.000e-3♥	0.000e-3♥	0.000e-3♥	0.000e-3♥	idk♥	0e-6♥	0.00e-6♥	0.2e-3♥	0.0♥	65.7♥
 	0.000e0♥	0.000e0♥	0.000e0♥	0.000e0♥	0.000e0♥0.000e0♥	0.000e0♥	0.000e0♥	0.000e0♥	0.000e0♥0.000e0♥	idk♥	0.000e0♥	0.000e0♥	0.000e0♥	idk♥	0.000e0♥	idk♥	0.000e0♥	idk♥	0.000e0♥	0.000e0♥
 	idk♥	0.000e0♥0.000e0♥0.000e0♥65.7♥	idk♥	idk♥F.empty
-brazilNuts = Source "brazilnuts" $ Substance 100 $ F.vector $	-- USDA 12078
+brazilNuts = Source "brazilnuts" $ Substance 100 $ usda $ F.vector $	-- USDA 12078
 	14.32e0♥	67.10e0♥	11.74e0♥	7.5e0♥	659e-3♥	3e-3♥	160e-3♥	376e-3♥	725e-3♥	2.43e-3♥	idk♥	4.06e-3♥	1917.0e-6♥	1.743e-3♥	idk♥	1.223e-3♥	idk♥	idk♥	idk♥	0e-6♥	0.7e-3♥	0.0e-6♥	5.65e-3♥	0.0e-6♥	0.617e-3♥	0.035e-3♥	0.295e-3♥	0.184e-3♥	0.101e-3♥	idk♥	22e-6♥	0.00e-6♥	28.8e-3♥	1.8e-2♥	23.877000000000002♥
 	0.409e0♥	0.518e0♥	1.190e0♥	0.490e0♥	0.365e0♥0.639e0♥	0.365e0♥	0.135e0♥	0.760e0♥	0.609e0♥2.140e0♥	idk♥	1.325e0♥	0.306e0♥	3.190e0♥	idk♥	0.733e0♥	idk♥	0.706e0♥	idk♥	0.676e0♥	0.416e0♥
 	0.018e0♥	0.000e0♥	0.000e0♥	0.000e0♥	23.859e0♥	0.018e0♥	idk♥F.empty
-oat = Source "oat" $ Substance 100 $ F.vector $	-- USDA 20038 + http://www.whfoods.com/genpage.php?tname=nutrientprofile&dbid=109
+oat = Source "oat" $ Substance 100 $ usda $ F.vector $	-- USDA 20038 + http://www.whfoods.com/genpage.php?tname=nutrientprofile&dbid=109
 	16.89♥	6.90e0♥66.27e0♥	10.6e0♥
 	429e-3♥	2e-3♥	54e-3♥	177e-3♥	523e-3♥	4.72e-3♥6.33e-6♥3.97e-3♥idk♥	626e-6♥	13.8e-6♥4.91e-3♥74e-6♥	idk♥	idk♥
 	0e-6♥	0.0e-3♥0.0e-6♥	idk♥	idk♥	763e-6♥	139e-6♥	961e-6♥	1.34e-3♥119e-6♥	20e-6♥	56e-6♥	0.00e-6♥17e-3♥	idk♥	idk♥
 	0.405e0♥0.694e0♥	1.284e0♥	0.701e0♥	0.575e0♥	0.895e0♥	0.575e0♥	0.234e0♥	0.937e0♥	0.881e0♥	1.192e0♥	idk♥	1.448e0♥	0.408e0♥	3.712e0♥idk♥	0.841e0♥	idk♥	0.934e0♥	idk♥	0.750e0♥	0.573e0♥
 	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥F.empty
-buckwheat = Source "buckwheat" $ Substance 100 $ F.vector $	-- USDA 20008
+buckwheat = Source "buckwheat" $ Substance 100 $ usda $ F.vector $	-- USDA 20008
 	13.25e0♥	3.40e0♥	71.50e0♥	10.0e0♥	460e-3♥	1e-3♥	18e-3♥	231e-3♥	347e-3♥	2.20e-3♥	idk♥	2.40e-3♥	8.3e-6♥	1.100e-3♥	idk♥	1.300e-3♥	idk♥	idk♥	idk♥	0e-6♥	0.0e-3♥	0.0e-6♥	idk♥	idk♥	0.101e-3♥	0.425e-3♥	7.020e-3♥	1.233e-3♥	0.210e-3♥	idk♥	30e-6♥	0.00e-6♥	idk♥	idk♥	idk♥	0.309e0♥	0.498e0♥	0.832e0♥	0.672e0♥	0.506e0♥	0.520e0♥	0.506e0♥	0.192e0♥	0.678e0♥	0.748e0♥	0.982e0♥	idk♥	1.133e0♥	0.229e0♥	2.046e0♥	idk♥1.031e0♥	idk♥	0.507e0♥	idk♥	0.685e0♥	0.241e0♥
 	idk♥	0.000e0♥	0.000e0♥	0.000e0♥	idk♥	idk♥	idk♥F.empty
-parsley = Source "parsley" $ Substance 100 $ F.vector $	-- USDA 11297
+parsley = Source "parsley" $ Substance 100 $ usda $ F.vector $	-- USDA 11297
 	2.97e0♥7.90e-1♥6.33e0♥	3.30e0♥
 	5.54e-1♥5.60e-2♥1.38e-1♥5.00e-2♥5.80e-2♥6.20e-3♥idk♥	1.07e-3♥1.00e-7♥1.49e-4♥idk♥	1.60e-4♥idk♥	idk♥	idk♥
 	4.21e-4♥idk♥	0.00e0♥	7.50e-4♥1.64e-3♥8.60e-5♥9.80e-5♥1.31e-3♥4.00e-4♥9.00e-5♥idk♥	1.52e-4♥0.00e0♥	12.8e-3♥8e-3♥	118e-3♥	-- http://nutritiondata.self.com/facts/vegetables-and-vegetable-products/2513/2
 	6.10e-2♥	1.18e-1♥	2.04e-1♥	1.81e-1♥	1.22e-1♥	1.45e-1♥	1.22e-1♥	4.50e-2♥1.72e-1♥	1.95e-1♥	1.22e-1♥	idk♥	2.94e-1♥1.40e-2♥	2.49e-1♥	idk♥	1.45e-1♥	idk♥	2.13e-1♥	idk♥	1.36e-1♥	8.20e-2♥
 	idk♥	0.000e0♥	0.000e0♥	0.000e0♥	idk♥	idk♥	idk♥F.empty
-parsleyDried = Source "parsleydried" $ Substance 100 $ F.vector $	-- USDA 02029
+parsleyDried = Source "parsleydried" $ Substance 100 $ usda $ F.vector $	-- USDA 02029
 	26.63e0♥	5.48e0♥	50.64e0♥	26.7e0♥	2683e-3♥	452e-3♥1140e-3♥	400e-3♥	436e-3♥	22.04e-3♥	idk♥	5.44e-3♥	14.1e-6♥0.780e-3♥	idk♥	9.810e-3♥	idk♥	idk♥	idk♥	97e-6♥	125.0e-3♥	0.0e-6♥	8.96e-3♥	1359.5e-6♥	0.196e-3♥	2.383e-3♥	9.943e-3♥	1.062e-3♥	0.900e-3♥	idk♥	180e-6♥	0.00e-6♥	97.1e-3♥	1.86♥	1.264♥
 	0.718e0♥	1.546e0♥	2.794e0♥	2.098e0♥	1.193e0♥1.712e0♥	1.193e0♥	0.475e0♥	2.021e0♥	1.778e0♥1.756e0♥	idk♥	3.169e0♥	0.298e0♥	3.688e0♥	idk♥	1.756e0♥	idk♥	2.010e0♥	idk♥	1.159e0♥	1.159e0♥
 	1.860e0♥	0.000e0♥	0.000e0♥	0.000e0♥	1.248e0♥0.016e0♥	idk♥F.empty
-flaxseedOil = Source "flaxseedoil" $ Substance 100 $ F.vector $	-- USDA 42231
+flaxseedOil = Source "flaxseedoil" $ Substance 100 $ usda $ F.vector $	-- USDA 42231
 	0.11e0♥	99.98e0♥	0.00e0♥	0.0e0♥	0e-3♥	0e-3♥	1e-3♥	0e-3♥	1e-3♥	0.00e-3♥	idk♥	0.07e-3♥	0.0e-6♥	0.000e-3♥	idk♥	0.000e-3♥	idk♥	idk♥	idk♥	0e-6♥	0.0e-3♥	0.0e-6♥0.47e-3♥	9.3e-6♥	0.000e-3♥	0.000e-3♥	0.000e-3♥	idk♥	0.000e-3♥	idk♥	0e-6♥	0.00e-6♥	0.2e-3♥	53.368♥	14.246♥
 	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥
 	53.368e0♥	0.000e0♥	0.000e0♥	0.000e0♥	14.246e0♥	0.000e0♥	idk♥F.empty
-fishOilCodLiver = Source "codliveroil" $ Substance 100 $ F.vector $	-- USDA 04589
+fishOilCodLiver = Source "codliveroil" $ Substance 100 $ usda $ F.vector $	-- USDA 04589
 	0.00e0♥	100.00e0♥	0.00e0♥	0.0e0♥	0e-3♥	0e-3♥	0e-3♥	0e-3♥	0e-3♥	0.00e-3♥	idk♥	0.00e-3♥	0.0e-6♥	0.000e-3♥	idk♥	0.000e-3♥	idk♥idk♥	idk♥	30000e-6♥	0.0e-3♥	250.0e-6♥	idk♥	idk♥	idk♥	0.000e-3♥	0.000e-3♥	0.000e-3♥	0.000e-3♥	idk♥	0e-6♥	0.00e-6♥	idk♥	18.801000000000002♥	0.0♥
 	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥
 	idk♥	6.898e0♥	0.935e0♥	10.968e0♥	idk♥	idk♥	idk♥F.empty
-eggHardboiled = Source "egghardboiled" $ Substance 100 $ F.vector $	-- USDA 01129
+eggHardboiled = Source "egghardboiled" $ Substance 100 $ usda $ F.vector $	-- USDA 01129
 	12.58e0♥	10.61e0♥	1.12e0♥	0.0e0♥	126e-3♥	124e-3♥	50e-3♥	10e-3♥	172e-3♥	1.19e-3♥	idk♥	1.05e-3♥	30.8e-6♥	0.013e-3♥	idk♥	0.026e-3♥	idk♥	idk♥	4.8e-6♥	149e-6♥0.0e-3♥	2.2e-6♥	1.03e-3♥	0.3e-6♥	0.066e-3♥	0.513e-3♥	0.064e-3♥	1.398e-3♥	0.121e-3♥	idk♥	44e-6♥	1.11e-6♥293.8e-3♥	4.3e-2♥	0.0♥
 	0.298e0♥	0.686e0♥	1.075e0♥	0.904e0♥	0.604e0♥0.668e0♥	0.604e0♥	0.153e0♥	0.767e0♥	0.700e0♥0.755e0♥	idk♥	1.264e0♥	0.292e0♥	1.644e0♥	idk♥	0.423e0♥	idk♥	0.501e0♥	idk♥	0.936e0♥	0.513e0♥
 	idk♥	0.005e0♥	0.000e0♥	0.038e0♥	idk♥	idk♥	idk♥F.empty
@@ -348,8 +351,17 @@ recipes =
 		:kSelenateS
 		:(1, snK)
 		:electrolytesS
-		++myPharmaS))
-	,("l29ah-choline", Recipe ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7) (vigantolS : kSelenateS : electrolytesClS ++ myPharmaS))
+		++pPharmaS))
+	,("l29ah-noraisins", Recipe
+		((0.91, oat)
+		:fatsOilsM)
+
+		(vigantolS
+		:kSelenateS
+		:(1, snK)
+		:electrolytesS
+		++pPharmaS))
+	,("l29ah-choline", Recipe ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7) (vigantolS : kSelenateS : electrolytesClS ++ pPharmaS))
 	,("default", Recipe (plantM fatsOilsM oat) (nowD3S : kSelenateS : electrolytesClS ++ pPharmaS))
 	,("default-choline", simpleR oat kSelenateS)
 	,("gluten-free", simpleR buckwheat seNutsS)
