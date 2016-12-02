@@ -38,6 +38,8 @@ The result resemble this:
   * Opinion of the scientific committee on food on the tolerable upper intake level of manganese 19.10.2009
     * manganese supplements are evil but no evidence of any damage from excessive intake from the food sources in diets of up to 20mg daily
   * http://discourse.soylent.com/t/have-you-asked-yourself-why-upper-limit-of-manganese-is-11mg-day/7660
+  * http://lpi.oregonstate.edu/mic/minerals/manganese#toxicity
+  * I got 8µg/L whole blood Mn while consuming 20.1mg Mn from oats per day
 * Vitamin A
   * 1 IU = 300ng of retinol
 * Vitamin K
