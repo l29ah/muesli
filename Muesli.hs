@@ -131,10 +131,10 @@ brazilNuts = Source "brazilnuts" $ Substance 100 $ usda $ F.vector $	-- USDA 120
 	14.32e0♥	67.10e0♥	11.74e0♥	7.5e0♥	659e-3♥	3e-3♥	160e-3♥	376e-3♥	725e-3♥	2.43e-3♥	idk♥	4.06e-3♥	1917.0e-6♥	1.743e-3♥	idk♥	1.223e-3♥	idk♥	idk♥	idk♥	0e-6♥	0.7e-3♥	0.0e-6♥	5.65e-3♥	0.0e-6♥	0.617e-3♥	0.035e-3♥	0.295e-3♥	0.184e-3♥	0.101e-3♥	idk♥	22e-6♥	0.00e-6♥	28.8e-3♥	1.8e-2♥	23.877000000000002♥
 	0.409e0♥	0.518e0♥	1.190e0♥	0.490e0♥	0.365e0♥0.639e0♥	0.365e0♥	0.135e0♥	0.760e0♥	0.609e0♥2.140e0♥	idk♥	1.325e0♥	0.306e0♥	3.190e0♥	idk♥	0.733e0♥	idk♥	0.706e0♥	idk♥	0.676e0♥	0.416e0♥
 	0.018e0♥	0.000e0♥	0.000e0♥	0.000e0♥	23.859e0♥	0.018e0♥	idk♥F.empty
-oat = Source "oat" $ Substance 100 $ usda $ F.vector $	-- USDA 20038 + http://www.whfoods.com/genpage.php?tname=nutrientprofile&dbid=109
-	16.89♥	6.90e0♥66.27e0♥	10.6e0♥
-	429e-3♥	2e-3♥	54e-3♥	177e-3♥	523e-3♥	4.72e-3♥6.33e-6♥3.97e-3♥idk♥	626e-6♥	13.8e-6♥4.91e-3♥74e-6♥	idk♥	idk♥
-	0e-6♥	0.0e-3♥0.0e-6♥	idk♥	idk♥	763e-6♥	139e-6♥	961e-6♥	1.34e-3♥119e-6♥	20e-6♥	56e-6♥	0.00e-6♥17e-3♥	idk♥	idk♥
+oat = Source "oat" $ Substance 100 $ usda $ F.vector $	-- USDA 08120 + http://www.whfoods.com/genpage.php?tname=nutrientprofile&dbid=109
+	13.15e0♥	6.52e0♥	67.70e0♥	10.1e0♥
+	362e-3♥	6e-3♥	52e-3♥	138e-3♥	410e-3♥	4.25e-3♥	idk♥	3.64e-3♥	28.9e-6♥	0.391e-3♥	idk♥	3.630e-3♥	idk♥	idk♥	idk♥
+	0e-6♥	0.0e-3♥	0.0e-6♥	0.42e-3♥	2.0e-6♥	0.460e-3♥	0.155e-3♥	1.125e-3♥	1.120e-3♥	0.100e-3♥	idk♥	32e-6♥	0.00e-6♥	40.4e-3♥	0.0♥	0.0♥
 	0.405e0♥0.694e0♥	1.284e0♥	0.701e0♥	0.575e0♥	0.895e0♥	0.575e0♥	0.234e0♥	0.937e0♥	0.881e0♥	1.192e0♥	idk♥	1.448e0♥	0.408e0♥	3.712e0♥idk♥	0.841e0♥	idk♥	0.934e0♥	idk♥	0.750e0♥	0.573e0♥
 	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥	idk♥F.empty
 buckwheat = Source "buckwheat" $ Substance 100 $ usda $ F.vector $	-- USDA 20008
