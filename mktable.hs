@@ -22,13 +22,15 @@ lookups csv components = map (\c -> tablify $ llookup c csv) components
 -- Assume idk = 0
 lookupFatty csv = sum . map (read :: String -> Double) . filter (/= "idk") . lookups csv
 
-componentsPreFat = ["Protein", "Total lipid (fat)", "Carbohydrate, by difference", "Fiber, total dietary",
-	"Potassium, K", "Sodium, Na", "Calcium, Ca", "Magnesium, Mg", "Phosphorus, P", "Iron, Fe", "Iodine, I", "Zinc, Zn", "Selenium, Se", "Copper, Cu", "Chromium, Cr", "Manganese, Mn", "Molybden, Md", "Chloride, Cl", "Fluoride, F",
-	"Vitamin A, RAE", "Vitamin C, total ascorbic acid", "Vitamin D (D2 + D3)", "Vitamin E (alpha-tocopherol)", "Vitamin K (phylloquinone)", "Thiamin", "Riboflavin", "Niacin", "Pantothenic acid", "Vitamin B-6", "Biotin", "Folate, total", "Vitamin B-12", "Choline, total"]
+components1 = ["Protein", "Total lipid (fat)", "Carbohydrate, by difference", "Fiber, total dietary"]
+components2 = ["Potassium, K", "Sodium, Na", "Calcium, Ca", "Magnesium, Mg", "Phosphorus, P", "Iron, Fe", "Iodine, I", "Zinc, Zn", "Selenium, Se", "Copper, Cu", "Chromium, Cr", "Manganese, Mn", "Molybden, Md", "Chloride, Cl", "Fluoride, F"]
+componentsPreFat = ["Vitamin A, RAE", "Vitamin C, total ascorbic acid", "Vitamin D (D2 + D3)", "Vitamin E (alpha-tocopherol)", "Vitamin K (phylloquinone)", "Thiamin", "Riboflavin", "Niacin", "Pantothenic acid", "Vitamin B-6", "Biotin", "Folate, total", "Vitamin B-12", "Choline, total"]
 componentsPostFat = ["Histidine", "Isoleucine", "Leucine", "Lysine", "Threonine", "Phenylalanine", "Threonine", "Tryptophan", "Valine", "Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cystine", "Glutamic acid", "Glutamine", "Glycine", "Ornithine", "Proline", "Selenocysteine", "Serine", "Tyrosine"]
 
 omega3 = ["18:3 n-3 c,c,c (ALA)", "20:5 n-3 (EPA)", "22:5 n-3 (DPA)", "22:6 n-3 (DHA)"]
 omega6 = ["18:2 n-6 c,c", "18:3 n-6 c,c,c", "20:4 n-6"]
+
+format comp csv = (intercalate "♥\t" $ lookups csv comp) ++ "♥"
 
 main = do
 	c <- getContents
@@ -36,6 +38,8 @@ main = do
 	either
 		print
 		(\r -> do
+			putStrLn $ format components1 r
+			putStrLn $ format components2 r
 			putStrLn $ (intercalate "♥\t" $ concat [
 				lookups r componentsPreFat,
 				[show $ lookupFatty r omega3, show $ lookupFatty r omega6]]) ++ "♥"
