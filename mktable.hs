@@ -36,11 +36,11 @@ main = do
 	either
 		print
 		(\r -> do
-			putStrLn $ (intercalate ",\t" $ concat [
+			putStrLn $ (intercalate "♥\t" $ concat [
 				lookups r componentsPreFat,
-				[show $ lookupFatty r omega3, show $ lookupFatty r omega6]]) ++ ","
-			putStrLn $ (intercalate ",\t" $ lookups r componentsPostFat) ++ ","
-			putStrLn $ intercalate ",\t" $ concat [
+				[show $ lookupFatty r omega3, show $ lookupFatty r omega6]]) ++ "♥"
+			putStrLn $ (intercalate "♥\t" $ lookups r componentsPostFat) ++ "♥"
+			putStrLn $ intercalate "♥\t" $ concat [
 				lookups r omega3,
 				lookups r omega6]
 		)
