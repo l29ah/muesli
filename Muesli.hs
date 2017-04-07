@@ -342,7 +342,7 @@ simpleR bulk selenium = Recipe (plantM fatsOilsM bulk) (defaultS selenium)
 
 recipes :: [(RecipeName, Recipe)]
 recipes =
-	[("l29ah", Recipe
+	[("l29ah-raisins", Recipe
 		((0.81, oat)
 		:(0.1, raisins)
 		:fatsOilsM)
@@ -352,7 +352,7 @@ recipes =
 		:(1, snK)
 		:electrolytesS
 		++pPharmaS))
-	,("l29ah-noraisins", Recipe
+	,("l29ah", Recipe
 		((0.91, oat)
 		:fatsOilsM)
 
