@@ -496,14 +496,14 @@ printRecipe r days = "Recipe for " ++ show days ++ " days:\n" ++
 
 usage = do
 	pn <- getProgName
-	putStr $ "Usage: " ++ pn ++ " <recipe name>\navailable recipes:\n\n" ++ (unlines $ map fst $ recipes)
+	putStr $ usageInfo ("Usage: " ++ pn ++ " <recipe name>\navailable recipes:\n\n" ++ (unlines $ map fst $ recipes)) options
 
 data Flag = FReport | FDays Double deriving (Eq, Show)
 
 options :: [OptDescr Flag]
 options =
-	[ Option ['r']	["--report"]	(NoArg	FReport)		"print the nutrients report table"
-	, Option ['d']	["--days"]	(ReqArg (FDays . read) "DAYS")	"print the sources' masses counted for DAYS of consumption"
+	[ Option ['r']	["report"]	(NoArg	FReport)		"print the nutrients report table"
+	, Option ['d']	["days"]	(ReqArg (FDays . read) "DAYS")	"print the sources' masses counted for DAYS of consumption"
 	]
 
 main = do
