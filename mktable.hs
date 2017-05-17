@@ -46,6 +46,7 @@ main = do
 			putStrLn $ (intercalate "♥\t" $ lookups r componentsPostFat) ++ "♥"
 			putStrLn $ intercalate "♥\t" $ concat [
 				lookups r omega3,
-				lookups r omega6]
+				lookups r omega6,
+				["F.empty"]]
 		)
 		cp
