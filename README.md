@@ -24,6 +24,10 @@ The result resemble this:
 * http://www.bestpravo.ru/federalnoje/bz-dokumenty/c5o.htm
 * http://ndb.nal.usda.gov/ndb/search/list
 * http://lpi.oregonstate.edu/mic
+* Protein
+  * should be 1,3-1,7g/kg body weight
+    * 10.1123/ijsn.5.s1.s39
+    * https://www.ncbi.nlm.nih.gov/pubmed/16779921
 * Calcium
   * [Calcium Supplementation in Clinical Practice: A Review of Forms, Doses, and Indications](http://ncp.sagepub.com/content/22/3/286.long)
   * [Stimulates gastric acid secretion](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1411522/)

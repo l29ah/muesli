@@ -162,6 +162,12 @@ eggHardboiled = Source "egghardboiled" $ Substance 100 $ usda $ F.vector $	-- US
 	12.58e0♥	10.61e0♥	1.12e0♥	0.0e0♥	126e-3♥	124e-3♥	50e-3♥	10e-3♥	172e-3♥	1.19e-3♥	idk♥	1.05e-3♥	30.8e-6♥	0.013e-3♥	idk♥	0.026e-3♥	idk♥	idk♥	4.8e-6♥	149e-6♥0.0e-3♥	2.2e-6♥	1.03e-3♥	0.3e-6♥	0.066e-3♥	0.513e-3♥	0.064e-3♥	1.398e-3♥	0.121e-3♥	idk♥	44e-6♥	1.11e-6♥293.8e-3♥	4.3e-2♥	0.0♥
 	0.298e0♥	0.686e0♥	1.075e0♥	0.904e0♥	0.604e0♥0.668e0♥	0.604e0♥	0.153e0♥	0.767e0♥	0.700e0♥0.755e0♥	idk♥	1.264e0♥	0.292e0♥	1.644e0♥	idk♥	0.423e0♥	idk♥	0.501e0♥	idk♥	0.936e0♥	0.513e0♥
 	idk♥	0.005e0♥	0.000e0♥	0.038e0♥	idk♥	idk♥	idk♥F.empty
+soyflourdefatted = Source "soyflourdefatted" $ Substance 100 $ usda $ F.vector $	-- USDA 16117
+	51.46e0♥	1.22e0♥	33.92e0♥	17.5e0♥
+	2384e-3♥	20e-3♥	241e-3♥	290e-3♥	674e-3♥	9.24e-3♥	idk♥	2.46e-3♥	1.7e-6♥	4.065e-3♥	idk♥	3.018e-3♥	idk♥	idk♥	idk♥
+	2e-6♥	0.0e-3♥	0.0e-6♥	0.12e-3♥	4.1e-6♥	0.698e-3♥	0.253e-3♥	2.612e-3♥	1.995e-3♥	0.574e-3♥	idk♥	305e-6♥	0.00e-6♥	11.3e-3♥	0.0♥	0.0♥
+	1.268e0♥	2.281e0♥	3.828e0♥	3.129e0♥	2.042e0♥	2.453e0♥	2.042e0♥	0.683e0♥	2.346e0♥	2.215e0♥	3.647e0♥	idk♥	5.911e0♥	0.757e0♥	9.106e0♥	idk♥	2.174e0♥	idk♥	2.750e0♥	idk♥	2.725e0♥	1.778e0♥
+	idk♥	0.000e0♥	0.000e0♥	0.000e0♥	idk♥	idk♥	idk♥F.empty
 
 naCl = Source "nacl" $ Substance 100 $ F.vector $
 	0♥	0♥	0♥	0♥
@@ -353,6 +359,16 @@ recipes =
 		:electrolytesS
 		++pPharmaS))
 	,("l29ah", Recipe
+		((0.8, oat)
+		:(0.15, soyflourdefatted)
+		:fatsOilsM)
+
+		(vigantolS
+		:kSelenateS
+		:(1, snK)
+		:electrolytesS
+		++pPharmaS))
+	,("l29ah-nosoy", Recipe
 		((0.91, oat)
 		:fatsOilsM)
 
