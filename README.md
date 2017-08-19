@@ -1,13 +1,13 @@
 # muesli
 
-A muesli calculator. Brought up because i'm not much into oocalc or smth and hope to write some clever algo to sort the mix out for me.
+A muesli calculator. Prints a recipe and its nutrition value. Brought up because i'm not much into oocalc or smth and hope to write some clever algo to sort the mix out for me.
 
 This project aims to provide one with fullfilling and easy to make food that needs to be chewed considerably to be consumed to trigger the corresponding digestive responses in one's body. There also were ideas about making it less bland for people unused to spice-free food, but i concluded it's quite individual stuff; i found sucralose, apple flavoring, garlic or chili powder doing the job. It consumes about $1 and 15mins per day, excluding the research, for me. I believe in dogfooding, so you can check out the recipe i'm using at the moment by hitting `./muesli.hs l29ah`.
 
-## Prerequisites:
+## Installation:
 
-* ghc
-* ansi-terminal, fixed-vector [available in hackage, install via cabal]
+* install ghc and cabal
+* `cabal update && cabal install ansi-terminal fixed-vector`
 
 ## Usage:
 
