@@ -11,13 +11,14 @@ This project aims to provide one with fullfilling and easy to make food that nee
 
 ## Usage:
 
+To see the nutrient profile and the current recipe, call:
+
+
 ```
 $ ./Muesli.hs default
 ```
 
-The result resemble this:
-
-![screenshot](https://dump.bitcheese.net/files/elekity/muesli-227aa19171c27f1e53283ca5589d9b4d5e1e4741.png)
+The result will resemble this: [ansi2html'ed snapshot](https://dump.bitcheese.net/files/cacobil/muesli-example.html)
 
 # Sources
 * [The original Soylent prototype](https://web.archive.org/web/20170305070025/http://robrhinehart.com/?p=424)
