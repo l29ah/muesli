@@ -20,7 +20,7 @@ The result resemble this:
 ![screenshot](https://dump.bitcheese.net/files/elekity/muesli-227aa19171c27f1e53283ca5589d9b4d5e1e4741.png)
 
 # Sources
-* http://robrhinehart.com/?p=424
+* [The original Soylent prototype](https://web.archive.org/web/20170305070025/http://robrhinehart.com/?p=424)
 * http://www.bestpravo.ru/federalnoje/bz-dokumenty/c5o.htm
 * http://ndb.nal.usda.gov/ndb/search/list
 * http://lpi.oregonstate.edu/mic
