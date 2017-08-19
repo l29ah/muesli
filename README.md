@@ -1,24 +1,23 @@
 # muesli
 
-A muesli calculator. Brought up because i'm not much into oocalc or smth and hope to write some clever algo to sort the mix out for me.
+A muesli calculator. Prints a recipe and its nutritional value. Brought up because i'm not much into oocalc or smth and hope to write some clever algo to sort the mix out for me.
 
-This project aims to provide one with fullfilling and easy to make food that needs to be chewed considerably to be consumed to trigger the corresponding digestive responses in one's body. There also were ideas about making it less bland for people unused to spice-free food, but i concluded it's quite individual stuff; i found sucralose, apple flavoring, garlic or chili powder doing the job. It consumes about $1 and 15mins per day, excluding the research, for me. I believe in dogfooding, so you can check out the recipe i'm using at the moment by hitting `./muesli.hs l29ah`.
+This project aims to provide one with fullfilling and easy to make food that needs to be chewed considerably to be consumed to trigger the corresponding digestive responses in one's body. There also were ideas about making it less bland for people unused to spice-free food, but i concluded it's quite individual stuff; i found garlic and chili powder doing the job. It consumes about $1 and 15mins per day, excluding the research, for me. I believe in dogfooding, so you can check out the recipe i'm using at the moment by hitting `./muesli.hs l29ah`.
 
-## Prerequisites:
+## Installation:
 
-* ghc
-* ansi-terminal, fixed-vector [available in hackage, install via cabal]
+* install ghc and cabal
+* `cabal install fixed-vector ansi-terminal`
 
 ## Usage:
-
-To see the nutrient profile and the current recipe, call:
-
 
 ```
 $ ./Muesli.hs default
 ```
 
-The result will resemble this: [ansi2html'ed snapshot](https://dump.bitcheese.net/files/cacobil/muesli-example.html)
+The result resemble this:
+
+![screenshot](https://dump.bitcheese.net/files/elekity/muesli-227aa19171c27f1e53283ca5589d9b4d5e1e4741.png)
 
 # Sources
 * [The original Soylent prototype](https://web.archive.org/web/20170305070025/http://robrhinehart.com/?p=424)
