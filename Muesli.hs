@@ -1,4 +1,4 @@
-#!/usr/bin/runhaskell
+#!/usr/bin/env runhaskell
 {-# LANGUAGE TemplateHaskell, DataKinds, FlexibleContexts #-}
 {-# OPTIONS_GHC -fno-warn-tabs #-}
 
