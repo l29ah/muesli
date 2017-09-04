@@ -378,7 +378,16 @@ recipes =
 		:electrolytesS
 		++pPharmaS))
 	,("l29ah-choline", Recipe ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7) (vigantolS : kSelenateS : electrolytesClS ++ pPharmaS))
-	,("default", Recipe (plantM fatsOilsM oat) (nowD3S : kSelenateS : electrolytesClS ++ pPharmaS))
+	,("default", Recipe
+		((0.8, oat)
+		:(0.15, soyflourdefatted)
+		:fatsOilsM)
+
+		(vigantolS
+		:kSelenateS
+		:(1, snK)
+		:electrolytesS
+		++pPharmaS))
 	,("default-choline", simpleR oat kSelenateS)
 	,("gluten-free", simpleR buckwheat seNutsS)
 	,("r2", Recipe (plantM fatsOilsM buckwheat) (nowD3S : kSelenateS : electrolytesS ++ pPharmaS))
