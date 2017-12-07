@@ -57,6 +57,7 @@ The result will resemble this: [ansi2html'ed snapshot](https://dump.bitcheese.ne
   * amount
     * 1µg cholecalciferol = 40IU
     * http://www.sciencedaily.com/releases/2015/03/150317122458.htm
+    * or even higher https://www.ncbi.nlm.nih.gov/m/pubmed/28768407/
     * my own experience re D3 -> 25(OH)D3: https://bnw.im/p/0DLNGK
 * Biotin
   * Produced by body and generally abundant
