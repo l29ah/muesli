@@ -9,7 +9,7 @@ The current requirements are optimized for a median male. A female would need to
 ## Installation:
 
 * install ghc and cabal
-* `cabal update && cabal install ansi-terminal fixed-vector`
+* `cabal update && cabal install ansi-terminal-0.6.3.1 fixed-vector-0.9.0.0`
 
 ## Usage:
 

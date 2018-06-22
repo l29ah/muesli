@@ -15,4 +15,4 @@ Executable      Muesli
         Build-depends:
                         base >= 4 && < 5,
                         ansi-terminal >= 0.6.2.1 && < 0.7,
-                        fixed-vector >= 0.8.1.0 && < 0.9
+                        fixed-vector >= 0.8.1.0 && < 1
