@@ -3,11 +3,13 @@
 module DatabaseTools where
 
 import qualified Data.Vector.Fixed as F
-import Data.Vector.Fixed ((<|), (!))
+import Data.Vector.Fixed (ContVec, S)
+import qualified Data.Vector.Fixed.Cont as C
 import Data.Vector.Fixed.Cont (ToPeano(..))
 
 -- xcompose'able space saver
-(♥) = (<|)
+(♥) :: a -> ContVec n a -> ContVec (S n) a
+(♥) = (C.cons)
 infixr 1 ♥
 
 -- TODO a better value that taints the calculation
