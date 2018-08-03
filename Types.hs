@@ -3,11 +3,11 @@
 module Types where
 
 import Data.Vector.Fixed.Boxed as V
-import Data.Vector.Fixed.Cont (ToPeano(..))
 
 type Kcal = Double
 type Grams = Double
-type Nutrients = V.Vec (ToPeano 64) Grams
+type Elements = 64
+type Nutrients = V.Vec Elements Grams
 
 data Component = Substance
 	{ sServingMass :: Grams	-- the total mass of the component described by sNutrients

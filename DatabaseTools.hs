@@ -1,16 +1,14 @@
-{-# LANGUAGE DataKinds, FlexibleContexts #-}
+{-# LANGUAGE DataKinds, FlexibleContexts, TypeFamilies #-}
 {-# OPTIONS_GHC -fno-warn-tabs #-}
 module DatabaseTools where
 
+import Data.Proxy
 import qualified Data.Vector.Fixed as F
-import Data.Vector.Fixed (ContVec, S)
 import qualified Data.Vector.Fixed.Cont as C
-import Data.Vector.Fixed.Cont (ToPeano(..))
 
--- xcompose'able space saver
-(♥) :: a -> ContVec n a -> ContVec (S n) a
-(♥) = (C.cons)
-infixr 1 ♥
+import Types
+
+mkL = F.mkN (Proxy :: Proxy Nutrients)
 
 -- TODO a better value that taints the calculation
 idk :: Double
@@ -23,4 +21,4 @@ nan = 0/0
 todo = idk
 
 -- USDA considers fiber a carbohydrate, we don't
-usda v = F.set (undefined :: ToPeano 2) ((F.index v (undefined :: ToPeano 2)) - (F.index v (undefined :: ToPeano 3))) v
+usda v = F.set (Proxy :: Proxy 2) ((F.index v (Proxy :: Proxy 2)) - (F.index v (Proxy :: Proxy 3))) v

@@ -30,7 +30,8 @@ componentsPostFat = ["Histidine", "Isoleucine", "Leucine", "Lysine", "Threonine"
 omega3 = ["18:3 n-3 c,c,c (ALA)", "20:5 n-3 (EPA)", "22:5 n-3 (DPA)", "22:6 n-3 (DHA)"]
 omega6 = ["18:2 n-6 c,c", "18:3 n-6 c,c,c", "20:4 n-6"]
 
-format comp csv = (intercalate "♥\t" $ lookups csv comp) ++ "♥"
+sep = "\t"
+format comp csv = intercalate sep $ lookups csv comp
 
 main = do
 	c <- getContents
@@ -40,13 +41,12 @@ main = do
 		(\r -> do
 			putStrLn $ format components1 r
 			putStrLn $ format components2 r
-			putStrLn $ (intercalate "♥\t" $ concat [
+			putStrLn $ (intercalate sep $ concat [
 				lookups r componentsPreFat,
-				[show $ lookupFatty r omega3, show $ lookupFatty r omega6]]) ++ "♥"
-			putStrLn $ (intercalate "♥\t" $ lookups r componentsPostFat) ++ "♥"
-			putStrLn $ intercalate "♥\t" $ concat [
+				[show $ lookupFatty r omega3, show $ lookupFatty r omega6]])
+			putStrLn $ (intercalate sep $ lookups r componentsPostFat)
+			putStrLn $ intercalate sep $ concat [
 				lookups r omega3,
-				lookups r omega6,
-				["F.empty"]]
+				lookups r omega6]
 		)
 		cp

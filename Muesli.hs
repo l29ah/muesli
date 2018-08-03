@@ -8,10 +8,9 @@ import Control.Exception
 import Control.Monad
 import Data.List
 import Data.Maybe
-import Data.Vector.Fixed ((<|), (!))
+import Data.Vector.Fixed ((!))
 import qualified Data.Vector.Fixed as F
 import Data.Vector.Fixed.Boxed as V
-import Data.Vector.Fixed.Cont (ToPeano(..))
 import System.Console.ANSI
 import System.Console.GetOpt
 import System.Environment
@@ -68,45 +67,51 @@ normalizeRecipe r = let	mult = energyMultiplier $ sumNutrients $ substances r in
 
 
 -- daily intakes, g at 2Mcal
-fdardi = F.vector $
-	50♥	65♥	300♥	25♥
-	4.7♥	2.4♥	1♥	0.4♥	1♥	18e-3♥	150e-6♥	15e-3♥	70e-6♥	0.7e-3♥	120e-6♥	2e-3♥	75e-6♥	3.4♥	nan♥
-	0.9e-3♥	0.06♥	10e-6♥	15e-3♥	80e-6♥	1.5e-3♥	1.7e-3♥	20e-3♥	10e-3♥	2e-3♥	0.3e-3♥	0.4e-3♥	6e-6♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥F.empty
-iomdrirda = F.vector $
-	nan♥	nan♥	nan♥	nan♥
-	4.7♥	1.5♥	1♥	0.4♥	0.7♥	15e-3♥	150e-6♥	11e-3♥	55e-6♥	0.9e-3♥	35e-6♥	2.3e-3♥	45e-6♥	2.3♥	4e-3♥
-	0.9e-3♥	0.09♥	15e-6♥	15e-3♥	120e-6♥	1.2e-3♥	1.3e-3♥	16e-3♥	5e-3♥	1.3e-3♥	30e-6♥	0.4e-3♥	2.4e-6♥	0.55♥	1.6♥	17♥
-	0.91♥	1.235♥	2.730♥	2.470♥	1.235♥	2.145♥	1.3♥	0.325♥	1.56♥
-	nan♥	nan♥	nan♥	nan♥	1.235♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	2.145♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥F.empty
-iomdriul = F.vector $
-	nan♥	nan♥	nan♥	nan♥
-	nan♥	2.3♥	2.5♥	0.7♥	4♥	45e-3♥	1.1e-3♥	40e-3♥	400e-6♥	10e-3♥	nan♥	11e-3♥	2e-3♥	3.6♥	10e-3♥
-	3e-3♥	2♥	100e-6♥	1♥	nan♥	nan♥	nan♥	35e-3♥	nan♥	100e-3♥	nan♥	1e-3♥	nan♥	3.5♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥F.empty
+fdardi = mkL
+	50	65	300	25
+	4.7	2.4	1	0.4	1	18e-3	150e-6	15e-3	70e-6	0.7e-3	120e-6	2e-3	75e-6	3.4	nan
+	0.9e-3	0.06	10e-6	15e-3	80e-6	1.5e-3	1.7e-3	20e-3	10e-3	2e-3	0.3e-3	0.4e-3	6e-6	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan
+iomdrirda = mkL
+	nan	nan	nan	nan
+	4.7	1.5	1	0.4	0.7	15e-3	150e-6	11e-3	55e-6	0.9e-3	35e-6	2.3e-3	45e-6	2.3	4e-3
+	0.9e-3	0.09	15e-6	15e-3	120e-6	1.2e-3	1.3e-3	16e-3	5e-3	1.3e-3	30e-6	0.4e-3	2.4e-6	0.55	1.6	17
+	0.91	1.235	2.730	2.470	1.235	2.145	1.3	0.325	1.56
+	nan	nan	nan	nan	1.235	nan	nan	nan	nan	nan	nan	nan	2.145
+	nan	nan	nan	nan	nan	nan	nan
+iomdriul = mkL
+	nan	nan	nan	nan
+	nan	2.3	2.5	0.7	4	45e-3	1.1e-3	40e-3	400e-6	10e-3	nan	11e-3	2e-3	3.6	10e-3
+	3e-3	2	100e-6	1	nan	nan	nan	35e-3	nan	100e-3	nan	1e-3	nan	3.5	nan	nan
+	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan
 
--- calculated for 65kg 18-29yo sedentary male♥ 2450kcal
-рсн = F.vector $
-	59♥	66♥	292♥	16♥	-- balanced for 2000kcal
-	2.5♥	1.3♥	1♥	0.4♥	0.8♥	10e-3♥	150e-6♥	12e-3♥	70e-6♥	1e-3♥	50e-6♥	2e-3♥	70e-6♥	2.3♥	4e-3♥
-	900e-6♥	90e-3♥	10e-6♥	15e-3♥	120e-6♥	1.5e-3♥	1.8e-3♥	20e-3♥	5e-3♥	2e-3♥	50e-6♥	400e-6♥	3e-6♥	0.5♥	1.6♥	7♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥F.empty
+-- calculated for 65kg 18-29yo sedentary male 2450kcal
+рсн = mkL
+	59	66	292	16	-- balanced for 2000kcal
+	2.5	1.3	1	0.4	0.8	10e-3	150e-6	12e-3	70e-6	1e-3	50e-6	2e-3	70e-6	2.3	4e-3
+	900e-6	90e-3	10e-6	15e-3	120e-6	1.5e-3	1.8e-3	20e-3	5e-3	2e-3	50e-6	400e-6	3e-6	0.5	1.6	7
+	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan
 
+-- nuts:prote,	fat,	carbs,	fiber,
+-- elem:potass,	sodium,	calciu,	magnes,	phosph,	iron,	iodine,	zinc,	seleni,	copper,	chromi,	mangane,molybde,chlorid,fluoride,
+-- vita:a,	c,	d,	e,	k,	thiami,	ribofl,	niacin,	pantot,	b6,	biotin,	folate,	b12,	choline,omega3,	omega6,
+-- e aa:His,	Ile,	Leu,	Lys,	Met,	Phe,	Thr,	Trp,	Val,
+-- o aa:Ala,	Arg,	Asn,	Asp,	Cys,	Glu,	Gln,	Gly,	Orn,	Pro,	Sel,	Ser,	Tyr
+-- e fa:ALA,	EPA,	DPA,	DHA,	LA,	GLA,	AA
 -- the difference against iom rda
-lpi = F.vector $
-	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	0.4♥	50e-6♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥
-	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥	nan♥F.empty
+lpi = mkL
+	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	0.4	50e-6	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+	nan	nan	nan	nan	nan	nan	nan
 
 attenuate :: [(Amount, Source)] -> Double -> [(Amount, Source)]
 attenuate l z = map (\(x, y) -> (x * z, y)) l
