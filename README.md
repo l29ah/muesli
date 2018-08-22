@@ -22,6 +22,13 @@ $ ./Muesli.hs default
 
 The result will resemble this: [ansi2html'ed snapshot](https://dump.bitcheese.net/files/cacobil/muesli-example.html)
 
+# What does it look like
+
+Raw:
+![raw muesli](https://dump.bitcheese.net/files/syjinyr/a.jpeg)
+Cooked:
+![cooked muesli](https://dump.bitcheese.net/files/wucurif/b.jpeg)
+
 # Sources
 * [The original Soylent prototype](https://web.archive.org/web/20170305070025/http://robrhinehart.com/?p=424)
 * http://www.bestpravo.ru/federalnoje/bz-dokumenty/c5o.htm
