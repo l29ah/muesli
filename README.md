@@ -6,6 +6,8 @@ This project aims to provide one with fullfilling and easy to make food that nee
 
 The current requirements are optimized for a median male. A female would need to take additional iron, at least. TODO: requirement profiles
 
+If you found it useful, you're eating the muesli for a long time, or having any problems with it, drop me a line.
+
 ## Installation:
 
 * install ghc and cabal
