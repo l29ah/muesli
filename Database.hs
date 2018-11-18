@@ -44,6 +44,9 @@ oat = Source "oat" $ Substance 100 $ usda $ mkL	-- USDA 08120 + http://www.whfoo
 buckwheat = Source "buckwheat" $ Substance 100 $ usda $ mkL	-- USDA 20008
 	13.25e0	3.40e0	71.50e0	10.0e0	460e-3	1e-3	18e-3	231e-3	347e-3	2.20e-3	idk	2.40e-3	8.3e-6	1.100e-3	idk	1.300e-3	idk	idk	idk	0e-6	0.0e-3	0.0e-6	idk	idk	0.101e-3	0.425e-3	7.020e-3	1.233e-3	0.210e-3	idk	30e-6	0.00e-6	idk	idk	idk	0.309e0	0.498e0	0.832e0	0.672e0	0.506e0	0.520e0	0.506e0	0.192e0	0.678e0	0.748e0	0.982e0	idk	1.133e0	0.229e0	2.046e0	idk	1.031e0	idk	0.507e0	idk	0.685e0	0.241e0
 	idk	0.000e0	0.000e0	0.000e0	idk	idk	idk
+buckwheatFlakes = Source "buckwheatflakes" $ Substance 100 $ usda $ mkL	-- same as buckwheat
+	13.25e0	3.40e0	71.50e0	10.0e0	460e-3	1e-3	18e-3	231e-3	347e-3	2.20e-3	idk	2.40e-3	8.3e-6	1.100e-3	idk	1.300e-3	idk	idk	idk	0e-6	0.0e-3	0.0e-6	idk	idk	0.101e-3	0.425e-3	7.020e-3	1.233e-3	0.210e-3	idk	30e-6	0.00e-6	idk	idk	idk	0.309e0	0.498e0	0.832e0	0.672e0	0.506e0	0.520e0	0.506e0	0.192e0	0.678e0	0.748e0	0.982e0	idk	1.133e0	0.229e0	2.046e0	idk	1.031e0	idk	0.507e0	idk	0.685e0	0.241e0
+	idk	0.000e0	0.000e0	0.000e0	idk	idk	idk
 parsley = Source "parsley" $ Substance 100 $ usda $ mkL	-- USDA 11297
 	2.97e0	7.90e-1	6.33e0	3.30e0
 	5.54e-1	5.60e-2	1.38e-1	5.00e-2	5.80e-2	6.20e-3	idk	1.07e-3	1.00e-7	1.49e-4	idk	1.60e-4	idk	idk	idk
