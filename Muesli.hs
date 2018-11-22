@@ -199,6 +199,15 @@ recipes =
 		:electrolytesS
 		++pPharmaS))
 	,("default-choline", simpleR oat kSelenateS)
+	,("gluten-soy-free", Recipe
+		((0.94, buckwheatFlakes)
+		:fatsOilsM)
+
+		(vigantolS
+		:kSelenateS
+		:(1, snK)
+		:electrolytesS
+		++pPharmaS))
 	,("gluten-free", Recipe
 		((0.88, buckwheatFlakes)
 		:(0.07, soyflourdefatted)
