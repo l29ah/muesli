@@ -166,7 +166,7 @@ recipes =
 		(vigantolS
 		:kSelenateS
 		:(1, snK)
-		:electrolytesS
+		:electrolytesClS
 		++pPharmaS))
 	,("l29ah", Recipe
 		((0.8, oat)
@@ -176,7 +176,7 @@ recipes =
 		(vigantolS
 		:kSelenateS
 		:(1, snK)
-		:electrolytesS
+		:electrolytesClS
 		++pPharmaS))
 	,("l29ah-nosoy", Recipe
 		((0.91, oat)
@@ -185,7 +185,7 @@ recipes =
 		(vigantolS
 		:kSelenateS
 		:(1, snK)
-		:electrolytesS
+		:electrolytesClS
 		++pPharmaS))
 	,("l29ah-choline", Recipe ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7) (vigantolS : kSelenateS : electrolytesClS ++ pPharmaS))
 	,("default", Recipe
@@ -196,7 +196,7 @@ recipes =
 		(vigantolS
 		:kSelenateS
 		:(1, snK)
-		:electrolytesS
+		:electrolytesClS
 		++pPharmaS))
 	,("default-choline", simpleR oat kSelenateS)
 	,("gluten-soy-free", Recipe
@@ -206,7 +206,7 @@ recipes =
 		(vigantolS
 		:kSelenateS
 		:(1, snK)
-		:electrolytesS
+		:electrolytesClS
 		++pPharmaS))
 	,("gluten-free", Recipe
 		((0.88, buckwheatFlakes)
@@ -216,9 +216,9 @@ recipes =
 		(vigantolS
 		:kSelenateS
 		:(1, snK)
-		:electrolytesS
+		:electrolytesClS
 		++pPharmaS))
-	,("r2", Recipe (plantM fatsOilsM buckwheat) (nowD3S : kSelenateS : electrolytesS ++ pPharmaS))
+	,("r2", Recipe (plantM fatsOilsM buckwheat) (nowD3S : kSelenateS : electrolytesClS ++ pPharmaS))
 	]
 
 references :: [Nutrients]
