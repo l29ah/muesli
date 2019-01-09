@@ -44,11 +44,11 @@ Cooked:
   * [Calcium Supplementation in Clinical Practice: A Review of Forms, Doses, and Indications](http://ncp.sagepub.com/content/22/3/286.long)
   * [Stimulates gastric acid secretion](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1411522/)
 * Potassium
-  * http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
+  * https://www.nal.usda.gov/sites/default/files/fnic_uploads/water_full_report.pdf
 * Sodium
-  * http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
+  * https://www.nal.usda.gov/sites/default/files/fnic_uploads/water_full_report.pdf
 * Chloride
-  * http://www.iom.edu/Reports/2004/Dietary-Reference-Intakes-Water-Potassium-Sodium-Chloride-and-Sulfate.aspx
+  * https://www.nal.usda.gov/sites/default/files/fnic_uploads/water_full_report.pdf
   * the upper limit can be bypassed relatively safely as it seems it only increases the blood pressure somewhat in this dose range
 * Manganese
   * Opinion of the scientific committee on food on the tolerable upper intake level of manganese 19.10.2009
