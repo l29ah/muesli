@@ -118,6 +118,13 @@ caCl = Source "cacl" $ Substance 100 $ mkL
 	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0
+caCl2x2H2O = Source "cacl2x2h2o" $ Substance 100 $ mkL
+	0	0	0	0
+	0	0	27.21	0	0	0	0	0	0	0	0	0	0	48.3	0
+	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0
 ca2CO3 = Source "chalk" $ Substance 100 $ mkL
 	0	0	0	0
 	0	0	57.1	0	0	0	0	0	0	0	0	0	0	0	0

@@ -140,7 +140,7 @@ electrolytesS = [
 electrolytesClS = [
 		(4/100, naClI),
 		(3/100, kCl),
-		(2/100, caCl)
+		(2.5/100, caCl2x2H2O)
 	]
 pPharmaS = [
 		(0.3/100, ascorbicAcid),
