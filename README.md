@@ -86,6 +86,8 @@ Cooked:
     * http://www.ncbi.nlm.nih.gov/pubmed/8897754
   * Seems to induce dental fluorosis at recommended dosages
     * http://www.ncbi.nlm.nih.gov/pubmed/2129630
+  * Likely neurotoxic and present in drinking water
+    * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3491930/
 * Choline
   * synthesized by body in small amounts
   * i didn't observe the signs of deficiency myself although being low on it for like the whole life; tried refilling it with eggs for two weeks, didn't notice anything interesting
