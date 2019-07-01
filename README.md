@@ -48,8 +48,8 @@ Cooked:
 * Sodium
   * https://www.nal.usda.gov/sites/default/files/fnic_uploads/water_full_report.pdf
 * Chloride
-  * https://www.nal.usda.gov/sites/default/files/fnic_uploads/water_full_report.pdf
-  * the upper limit can be bypassed relatively safely as it seems it only increases the blood pressure somewhat in this dose range
+  * no proper data from IOM
+  * https://www.ahajournals.org/doi/full/10.1161/01.HYP.0000158264.36590.19 suggests chloride intake doesn't matter for blood pressure
 * Manganese
   * Opinion of the scientific committee on food on the tolerable upper intake level of manganese 19.10.2009
     * manganese supplements are evil but no evidence of any damage from excessive intake from the food sources in diets of up to 20mg daily
