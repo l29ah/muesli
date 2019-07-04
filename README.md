@@ -22,7 +22,7 @@ To see the nutrient profile and the current recipe, call:
 $ ./Muesli.hs default
 ```
 
-The result will resemble this: [ansi2html'ed snapshot](https://dump.bitcheese.net/files/cacobil/muesli-example.html)
+The result will resemble this: [ansi2html'ed snapshot](http://muesli.l29ah.blasux.ru/muesli-dump.html)
 
 # What does it look like
 
