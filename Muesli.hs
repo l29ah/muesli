@@ -152,9 +152,23 @@ seNutsS = (7/100, brazilNuts)
 kSelenateS = (250e-6/100, kSelenate)
 vigantolS = (10, vigantol) -- ten drops of vigantol on days w/o at least half an hour of good uvb light exposure
 nowD3S = (1, nowD35000)
+iodineS = (2e-3, iodine5p)
 defaultS selenium = nowD3S : selenium : electrolytesS ++ pharmaS
 
 simpleR bulk selenium = Recipe (plantM fatsOilsM bulk) (defaultS selenium)
+
+l29ah :: Recipe
+l29ah = Recipe
+		((0.8, oat)
+		:(0.15, soyflourdefatted)
+		:fatsOilsM)
+
+		(vigantolS
+		:kSelenateS
+		:(1, snK)
+		:iodineS
+		:electrolytesClS
+		++pPharmaS)
 
 recipes :: [(RecipeName, Recipe)]
 recipes =
@@ -168,16 +182,7 @@ recipes =
 		:(1, snK)
 		:electrolytesClS
 		++pPharmaS))
-	,("l29ah", Recipe
-		((0.8, oat)
-		:(0.15, soyflourdefatted)
-		:fatsOilsM)
-
-		(vigantolS
-		:kSelenateS
-		:(1, snK)
-		:electrolytesClS
-		++pPharmaS))
+	,("l29ah", l29ah)
 	,("l29ah-nosoy", Recipe
 		((0.91, oat)
 		:fatsOilsM)
@@ -188,16 +193,7 @@ recipes =
 		:electrolytesClS
 		++pPharmaS))
 	,("l29ah-choline", Recipe ((0.3, eggHardboiled) : attenuate (plantM fatsOilsM oat) 0.7) (vigantolS : kSelenateS : electrolytesClS ++ pPharmaS))
-	,("default", Recipe
-		((0.8, oat)
-		:(0.15, soyflourdefatted)
-		:fatsOilsM)
-
-		(vigantolS
-		:kSelenateS
-		:(1, snK)
-		:electrolytesClS
-		++pPharmaS))
+	,("default", l29ah)
 	,("default-choline", simpleR oat kSelenateS)
 	,("gluten-soy-free", Recipe
 		((0.94, buckwheatFlakes)

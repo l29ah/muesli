@@ -79,6 +79,9 @@ Cooked:
 * Molybdenum
   * Deficiency only on i/v feeding or in molybdenum-poor soils (northen China to Iran)
     * https://en.wikipedia.org/wiki/Molybdenum#Human_dietary_intake_and_deficiency
+* Iodine
+  * Salt form is unnecessary, molecular iodine is okay
+    * https://www.zrtlab.com/blog/archive/guide-how-to-treat-iodine-deficiency/
 * Fluoride
   * Controversive
   * https://en.wikipedia.org/wiki/Fluoride_deficiency

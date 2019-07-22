@@ -175,3 +175,10 @@ snK = Source "sourcenaturalsk" $ Pill $ mkL
 	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0
+iodine5p = Source "iodine5p" $ Pill $ mkL
+	0	0	0	0
+	0	0	0	0	0	0	0.05	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0
