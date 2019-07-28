@@ -102,3 +102,4 @@ Cooked:
     * http://ajcn.nutrition.org/content/83/6/S1483.long
     * DHA
       * brain (at least early and elderly); produced in small quantites from ALA in young females only
+      * especially vulnerable to peroxidation in vivo: https://www.ncbi.nlm.nih.gov/pubmed/11110863
