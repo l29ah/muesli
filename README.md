@@ -35,7 +35,7 @@ Cooked:
 * [The original Soylent prototype](https://web.archive.org/web/20170305070025/http://robrhinehart.com/?p=424)
 * http://www.bestpravo.ru/federalnoje/bz-dokumenty/c5o.htm
 * http://ndb.nal.usda.gov/ndb/search/list
-* http://lpi.oregonstate.edu/mic
+* https://lpi.oregonstate.edu/publications/rx-health
 * Protein
   * should be 1,3-1,7g/kg body weight
     * 10.1123/ijsn.5.s1.s39

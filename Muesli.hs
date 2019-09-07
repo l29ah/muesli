@@ -104,7 +104,7 @@ iomdriul = mkL
 -- e aa:His,	Ile,	Leu,	Lys,	Met,	Phe,	Thr,	Trp,	Val,
 -- o aa:Ala,	Arg,	Asn,	Asp,	Cys,	Glu,	Gln,	Gly,	Orn,	Pro,	Sel,	Ser,	Tyr
 -- e fa:ALA,	EPA,	DPA,	DHA,	LA,	GLA,	AA
--- the difference against iom rda
+-- the difference against iom rda as seen in https://lpi.oregonstate.edu/publications/rx-health
 lpi = mkL
 	nan	nan	nan	nan
 	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
