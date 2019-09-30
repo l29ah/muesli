@@ -82,6 +82,7 @@ Cooked:
 * Iodine
   * Salt form is unnecessary, molecular iodine is okay
     * https://www.zrtlab.com/blog/archive/guide-how-to-treat-iodine-deficiency/
+    * 200µg I2 per 3L of water is 15-150 times less than used for drinking water disinfection
 * Fluoride
   * Controversive
   * https://en.wikipedia.org/wiki/Fluoride_deficiency
