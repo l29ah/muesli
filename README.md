@@ -33,16 +33,16 @@ Cooked:
 
 # Sources
 * [The original Soylent prototype](https://web.archive.org/web/20170305070025/http://robrhinehart.com/?p=424)
-* http://www.bestpravo.ru/federalnoje/bz-dokumenty/c5o.htm
-* http://ndb.nal.usda.gov/ndb/search/list
+* https://www.bestpravo.com/federalnoje/bz-dokumenty/c5o/index.htm
+* https://fdc.nal.usda.gov/fdc-app.html#/?query=
 * https://lpi.oregonstate.edu/publications/rx-health
 * Protein
   * should be 1,3-1,7g/kg body weight
     * 10.1123/ijsn.5.s1.s39
     * https://www.ncbi.nlm.nih.gov/pubmed/16779921
 * Calcium
-  * [Calcium Supplementation in Clinical Practice: A Review of Forms, Doses, and Indications](http://ncp.sagepub.com/content/22/3/286.long)
-  * [Stimulates gastric acid secretion](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1411522/)
+  * [Calcium Supplementation in Clinical Practice: A Review of Forms, Doses, and Indications](https://onlinelibrary.wiley.com/doi/full/10.1177/0115426507022003286)
+  * [Stimulates gastric acid secretion](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1411522/)
 * Potassium
   * https://www.nal.usda.gov/sites/default/files/fnic_uploads/water_full_report.pdf
 * Sodium
@@ -53,21 +53,21 @@ Cooked:
 * Manganese
   * Opinion of the scientific committee on food on the tolerable upper intake level of manganese 19.10.2009
     * manganese supplements are evil but no evidence of any damage from excessive intake from the food sources in diets of up to 20mg daily
-  * http://discourse.soylent.com/t/have-you-asked-yourself-why-upper-limit-of-manganese-is-11mg-day/7660
-  * http://lpi.oregonstate.edu/mic/minerals/manganese#toxicity
+  * https://discourse.soylent.com/t/have-you-asked-yourself-why-upper-limit-of-manganese-is-11mg-day/7660
+  * https://lpi.oregonstate.edu/mic/minerals/manganese#toxicity
   * I got 8µg/L whole blood Mn while consuming 20.1mg Mn from oats per day
 * Vitamin A
   * 1 IU = 300ng of retinol
 * Vitamin K
   * green veggies
 * Vitamin C
-  * http://ajcn.nutrition.org/content/69/6/1086
+  * https://academic.oup.com/ajcn/article/69/6/1086/4714888/
 * Vitamin D
   * comes from sunlight and supplements only, basically
   * quite a lot of inconclusive studies regarding cancer
   * amount
     * 1µg cholecalciferol = 40IU
-    * http://www.sciencedaily.com/releases/2015/03/150317122458.htm
+    * https://www.sciencedaily.com/releases/2015/03/150317122458.htm
     * or even higher https://www.ncbi.nlm.nih.gov/m/pubmed/28768407/
     * my own experience re D3 -> 25(OH)D3: https://bnw.im/p/0DLNGK
 * Biotin
@@ -87,20 +87,20 @@ Cooked:
   * Controversive
   * https://en.wikipedia.org/wiki/Fluoride_deficiency
   * No effect on bone strength
-    * http://www.ncbi.nlm.nih.gov/pubmed/8897754
+    * https://www.ncbi.nlm.nih.gov/pubmed/8897754
   * Seems to induce dental fluorosis at recommended dosages
-    * http://www.ncbi.nlm.nih.gov/pubmed/2129630
+    * https://www.ncbi.nlm.nih.gov/pubmed/2129630
   * Likely neurotoxic and present in drinking water
     * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3491930/
 * Choline
   * synthesized by body in small amounts
   * i didn't observe the signs of deficiency myself although being low on it for like the whole life; tried refilling it with eggs for two weeks, didn't notice anything interesting
 * Polyunsaturated fatty acids
-  * http://www.sciencedirect.com/science/article/pii/S016378271300057X
-  * http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
+  * https://www.sciencedirect.com/science/article/pii/S016378271300057X
+  * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
   * n-3
-    * http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
-    * http://ajcn.nutrition.org/content/83/6/S1483.long
+    * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
+    * https://www.ncbi.nlm.nih.gov/pubmed/16841858
     * DHA
       * brain (at least early and elderly); produced in small quantites from ALA in young females only
       * especially vulnerable to peroxidation in vivo: https://www.ncbi.nlm.nih.gov/pubmed/11110863
