@@ -14,6 +14,7 @@ import Data.Vector.Fixed.Boxed as V
 import System.Console.ANSI
 import System.Console.GetOpt
 import System.Environment
+import System.IO
 import Text.Printf
 
 import Database
@@ -236,10 +237,10 @@ printMass x
 	| x > 2e-3  = printf "%4.1f mg" $ x * 1e3
 	| otherwise = printf "%4.1f µg" $ x * 1e6
 
-printPercent :: (Double -> Color) -> Double -> String
-printPercent schema x
+printPercent :: Bool -> (Double -> Color) -> Double -> String
+printPercent useColors schema x
 	| isNaN x = printf "       "
-	| otherwise = colorify schema x (printf "%6.0f%%" x)
+	| otherwise = let value = (printf "%6.0f%%" x) in if useColors then colorify schema x value else value
 
 colorify :: (Double -> Color) -> Double -> String -> String
 colorify schema x s =
@@ -252,8 +253,8 @@ colorify schema x s =
 good x = if x < 75 then Red else if x < 125 then Yellow else Green
 bad x = if x < 75 then Green else if x < 125 then Yellow else Red
 
-report :: Recipe -> String
-report rec = let [
+report :: Bool -> Recipe -> String
+report useColors rec = let [
 				pr, fa, carb, fib,
 				k, na, ca, mg, ph, fe, i, zn, se, cu, cr, mn, mo, cl, fl,
 				vA, vC, vD, vE, vK, thi, rib, nia, pant, vB6, bio, fol, vB12, cho, o3, o6,
@@ -262,7 +263,7 @@ report rec = let [
 				alaa, epa, dpa, dha, la, gla, aa
 				] = map (\(x:xs) -> x : map (* 100) xs) $ transpose $ map F.toList $ tbl rec in
 	(printf "%-26s %14s %7s %7s %7s %7s %7s\n" ("" :: String) ("mass" :: String) ("РСН" :: String) ("FDA RDI" :: String) ("DRI RDA" :: String) ("LPI" :: String) ("DRI UL" :: String)) ++
-	concatMap (\(a, [w, b, c, d, e, lpi]) -> printf "%-26s %14s %s %s %s %s %s\n" a (printMass w) (printPercent good b) (printPercent good c) (printPercent good d) (printPercent good lpi) (printPercent bad e)) ([
+	concatMap (\(a, [w, b, c, d, e, lpi]) -> printf "%-26s %14s %s %s %s %s %s\n" a (printMass w) (printPercent useColors good b) (printPercent useColors good c) (printPercent useColors good d) (printPercent useColors good lpi) (printPercent useColors bad e)) ([
 		("Protein", pr),
 		("Fat", fa),
 		("Carbohydrates", carb),
@@ -358,12 +359,13 @@ options =
 main = do
 	args <- getArgs
 	let (opts, strings, errs) = getOpt RequireOrder options args
+	useColors <- hSupportsANSI stdout
 	fromMaybe usage $ do
 		recipename <- listToMaybe strings
 		rec <- lookup recipename recipes
 		let nrec = normalizeRecipe rec
 		return $ do
-			putStrLn $ report nrec
+			putStrLn $ report useColors nrec
 			let days = maybe 1 (\(FDays d) -> d) $ find (\x -> case x of FDays _ -> True; _ -> False) opts
 			when (notElem FReport opts) $ putStrLn $ '\n' :
 				(printRecipe nrec days) ++
