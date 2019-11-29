@@ -348,18 +348,20 @@ usage = do
 	pn <- getProgName
 	putStr $ usageInfo ("Usage: " ++ pn ++ " <recipe name>\navailable recipes:\n\n" ++ (unlines $ map fst $ recipes)) options
 
-data Flag = FReport | FDays Double deriving (Eq, Show)
+data Flag = FReport | FColors | FDays Double deriving (Eq, Show)
 
 options :: [OptDescr Flag]
 options =
 	[ Option ['r']	["report"]	(NoArg	FReport)		"print the nutrients report table"
+	, Option ['c']	["colors"]	(NoArg	FColors)		"forcefully enable ANSI-colored output"
 	, Option ['d']	["days"]	(ReqArg (FDays . read) "DAYS")	"print the sources' masses counted for DAYS of consumption"
 	]
 
 main = do
 	args <- getArgs
 	let (opts, strings, errs) = getOpt RequireOrder options args
-	useColors <- hSupportsANSI stdout
+	supportsColors <- hSupportsANSI stdout
+	let useColors = or [supportsColors, elem FColors opts]
 	fromMaybe usage $ do
 		recipename <- listToMaybe strings
 		rec <- lookup recipename recipes
