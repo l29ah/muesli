@@ -27,6 +27,14 @@ undevit = Source "undevit" $ Pill $ mkL
 	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0
+gendevit = Source "gendevit" $ Pill $ mkL
+	0	0	0	0
+	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+	1e-3	75e-3	6.25e-6	5e-3	0	1.5e-3	1.5e-3	10e-3	3e-3	2e-3	0	300e-6	10e-6	0	0	0
+	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0
+
 sunflowerOil = Source "sunfloweroil" $ Substance 100 $ usda $ mkL	-- USDA 04506, manually corrected assuming 18:2 is LA
 	0.00e0	100.00e0	0.00e0	0.0e0	0e-3	0e-3	0e-3	0e-3	0e-3	0.00e-3	idk	0.00e-3	0.0e-6	0.000e-3	idk	idk	idk	idk	idk	0e-6	0.0e-3	0.0e-6	41.08e-3	5.4e-6	0.000e-3	0.000e-3	0.000e-3	0.000e-3	0.000e-3	idk	0e-6	0.00e-6	0.2e-3	0.0	65.7
 	0.000e0	0.000e0	0.000e0	0.000e0	0.000e0	0.000e0	0.000e0	0.000e0	0.000e0	0.000e0	0.000e0	idk	0.000e0	0.000e0	0.000e0	idk	0.000e0	idk	0.000e0	idk	0.000e0	0.000e0
