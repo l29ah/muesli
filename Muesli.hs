@@ -160,7 +160,7 @@ simpleR bulk selenium = Recipe (plantM fatsOilsM bulk) (defaultS selenium)
 
 l29ah :: Recipe
 l29ah = Recipe
-		((0.8, oat)
+		((0.82, oat)
 		:(0.15, soyflourdefatted)
 		:fatsOilsM)
 
