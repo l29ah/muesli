@@ -15,5 +15,5 @@ Executable      Muesli
         other-modules:  Database, DatabaseTools, Types, Muesli
         Build-depends:
                         base >= 4 && < 5,
-                        ansi-terminal >= 0.6.2.1 && < 0.9,
+                        ansi-terminal >= 0.6.2.1 && < 0.10,
                         fixed-vector >= 1.1 && < 1.3
