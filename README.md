@@ -96,13 +96,18 @@ Cooked:
 * Choline
   * synthesized by body in small amounts
   * i didn't observe the signs of deficiency myself although being low on it for like the whole life; tried refilling it with eggs for two weeks, didn't notice anything interesting
-* Polyunsaturated fatty acids
-  * The oil should be unrefined, since refining converts some PUFAs into trans-isomeres.
-  * https://www.sciencedirect.com/science/article/pii/S016378271300057X
-  * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
-  * n-3
+* Fats
+  * Polyunsaturated fatty acids
+    * The oil should be unrefined, since refining converts some PUFAs into trans-isomeres.
+    * https://www.sciencedirect.com/science/article/pii/S016378271300057X
     * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
-    * https://www.ncbi.nlm.nih.gov/pubmed/16841858
-    * DHA
-      * brain (at least early and elderly); produced in small quantites from ALA in young females only
-      * especially vulnerable to peroxidation in vivo: https://www.ncbi.nlm.nih.gov/pubmed/11110863
+    * n-3
+      * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4179179/
+      * https://www.ncbi.nlm.nih.gov/pubmed/16841858
+      * DHA
+        * brain (at least early and elderly); produced in small quantites from ALA in young females only
+        * especially vulnerable to peroxidation in vivo: https://www.ncbi.nlm.nih.gov/pubmed/11110863
+  * Refined oil has a lower degree of peroxidation
+    * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4486537/
+  * Refined oil has much more trans fats
+    * https://www.scielo.br/pdf/aabc/v79n2/a15v79n2.pdf
