@@ -4,6 +4,8 @@ A muesli calculator. Prints a recipe and its nutrition value. Brought up because
 
 This project aims to provide one with fullfilling and easy to make food that needs to be chewed considerably to be consumed to trigger the corresponding digestive responses in one's body. There also were ideas about making it less bland for people unused to spice-free food, but i concluded it's quite individual stuff; i found sweeteners (like aspartame and sucralose), vanillin, apple flavoring, garlic or chili powder doing the job. It consumes about $1 and 15mins per day, excluding the research, for me. I believe in dogfooding, so you can check out the recipe i'm using at the moment by hitting `./Muesli.hs l29ah`.
 
+[ansi2html'ed snapshot of the recipe](http://muesli.l29ah.blasux.ru/muesli-dump.html)
+
 The current requirements are optimized for a median male. A female would need to take additional iron, at least. TODO: requirement profiles
 
 If you found it useful, you're eating the muesli for a long time, or having any problems with it, drop me a line.
@@ -21,8 +23,6 @@ To see the nutrient profile and the current recipe, call:
 ```
 $ ./Muesli.hs default
 ```
-
-The result will resemble this: [ansi2html'ed snapshot](http://muesli.l29ah.blasux.ru/muesli-dump.html)
 
 # What does it look like
 
