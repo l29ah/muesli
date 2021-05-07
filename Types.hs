@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE DataKinds, TypeFamilies, UndecidableInstances #-}
 {-# OPTIONS_GHC -fno-warn-tabs #-}
 module Types where
 
