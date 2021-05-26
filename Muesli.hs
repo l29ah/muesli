@@ -69,9 +69,9 @@ normalizeRecipe r = let	mult = energyMultiplier $ sumNutrients $ substances r in
 
 -- daily intakes, g at 2Mcal
 fdardi = mkL
-	50	65	300	25
-	4.7	2.4	1	0.4	1	18e-3	150e-6	15e-3	70e-6	0.7e-3	120e-6	2e-3	75e-6	3.4	nan
-	0.9e-3	0.06	10e-6	15e-3	80e-6	1.5e-3	1.7e-3	20e-3	10e-3	2e-3	0.3e-3	0.4e-3	6e-6	nan	nan	nan
+	50	78	275	28
+	4.7	2.3	1.3	0.42	1.25	18e-3	150e-6	11e-3	55e-6	0.9e-3	35e-6	2.3e-3	45e-6	2.3	4e-3
+	0.9e-3	0.09	20e-6	15e-3	120e-6	1.2e-3	1.3e-3	16e-3	5e-3	1.7e-3	30e-6	0.4e-3	2.4e-6	0.55	nan	nan
 	nan	nan	nan	nan	nan	nan	nan	nan	nan
 	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
 	nan	nan	nan	nan	nan	nan	nan
