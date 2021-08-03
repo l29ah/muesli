@@ -1,19 +1,19 @@
 # muesli
 
-A muesli calculator. Prints a recipe and its nutrition value. Brought up because i'm not much into oocalc or smth and hope to write some clever algo to sort the mix out for me.
+A muesli calculator. Prints a recipe and its nutritional value. Brought up because i'm not much into spreadsheets and hoped to write some clever algo to sort the mix out for me someday.
 
-This project aims to provide one with fullfilling and easy to make food that needs to be chewed considerably to be consumed to trigger the corresponding digestive responses in one's body. There also were ideas about making it less bland for people unused to spice-free food, but i concluded it's quite individual stuff; i found sweeteners (like aspartame and sucralose), vanillin, apple flavoring, garlic or chili powder doing the job. It consumes about $1 and 15mins per day, excluding the research, for me. I believe in dogfooding, so you can check out the recipe i'm using at the moment by hitting `./Muesli.hs l29ah`.
+This project aims to provide one with nutritionally complete and easy to make food that needs to be chewed considerably to be consumed to trigger the corresponding digestive responses in one's body. There were also ideas about making it less bland for people unused to spice-free food, but i concluded it's quite individual stuff; i found sweeteners (like aspartame and sucralose), vanillin, apple flavoring, garlic or chili powder doing the job. It consumes about $1 and 15mins per day, excluding the research, for me. I believe in dogfooding, so you can check out the recipe i'm using at the moment by hitting `./Muesli.hs l29ah`.
 
 [ansi2html'ed snapshot of the recipe](http://muesli.l29ah.blasux.ru/muesli-dump.html)
 
-The current requirements are optimized for a median male. A female would need to take additional iron, at least. TODO: requirement profiles
+The current requirements are optimized for a median male. A female (or a frequent blood donor, or otherwise a person who loses erythrocytes quickly) would need to supplement iron additionally. TODO: requirement profiles
 
 If you found it useful, you're eating the muesli for a long time, or having any problems with it, drop me a line.
 
 ## Installation:
 
 * install ghc and cabal
-* `cabal update && cabal install ansi-terminal-0.6.3.1 fixed-vector-0.9.0.0`
+* `cabal update && cabal install ansi-terminal fixed-vector`
 
 ## Usage:
 
@@ -62,6 +62,7 @@ Cooked:
   * green veggies
 * Vitamin C
   * https://academic.oup.com/ajcn/article/69/6/1086/4714888/
+  * ascorbic acid also retards fat rancidification
 * Vitamin D
   * comes from sunlight and supplements only, basically
   * quite a lot of inconclusive studies regarding cancer
