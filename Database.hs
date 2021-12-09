@@ -147,6 +147,13 @@ ca2CO3 = Source "chalk" $ Substance 100 $ mkL
 	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0
+naI = Source "nai" $ Substance 1 $ mkL
+	0	0	0	0
+	0	0.1534	0	0	0	0	0.8466	0	0	0	0	0	0	60.68	0
+	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0	0	0	0	0	0	0
+	0	0	0	0	0	0	0
 
 ascorbicAcid = Source "ascorbica" $ Substance 100 $ mkL
 	0	0	0	0
@@ -187,13 +194,6 @@ snK = Source "sourcenaturalsk" $ Pill $ mkL
 	0	0	0	0
 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0.5e-3	0	0	0	0	0	0	0	0	0	0	0
-	0	0	0	0	0	0	0	0	0
-	0	0	0	0	0	0	0	0	0	0	0	0	0
-	0	0	0	0	0	0	0
-iodine5p = Source "iodine5p" $ Pill $ mkL
-	0	0	0	0
-	0	0	0	0	0	0	0.05	0	0	0	0	0	0	0	0
-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0	0	0	0	0	0	0
 	0	0	0	0	0	0	0

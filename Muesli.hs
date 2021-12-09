@@ -153,7 +153,7 @@ seNutsS = (7/100, brazilNuts)
 kSelenateS = (250e-6/100, kSelenate)
 vigantolS = (10, vigantol) -- ten drops of vigantol on days w/o at least half an hour of good uvb light exposure
 nowD3S = (1, nowD35000)
-iodineS = (2e-3, iodine5p)
+iodineS = (200e-6, naI)
 defaultS selenium = nowD3S : selenium : electrolytesS ++ pharmaS
 
 simpleR bulk selenium = Recipe (plantM fatsOilsM bulk) (defaultS selenium)
