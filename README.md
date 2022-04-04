@@ -27,9 +27,9 @@ $ ./Muesli.hs default
 # What does it look like
 
 Raw:
-![raw muesli](https://dump.bitcheese.net/files/syjinyr/a.jpeg)
+![raw muesli](http://muesli.l29ah.blasux.ru/a.jpeg)
 Cooked:
-![cooked muesli](https://dump.bitcheese.net/files/wucurif/b.jpeg)
+![cooked muesli](http://muesli.l29ah.blasux.ru/b.jpeg)
 
 # Sources
 * [The original Soylent prototype](https://web.archive.org/web/20170305070025/http://robrhinehart.com/?p=424)
