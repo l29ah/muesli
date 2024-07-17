@@ -12,7 +12,7 @@ If you found it useful, you're eating the muesli for a long time, or having any 
 
 ## Installation:
 
-* install ghc and cabal
+* install ghc (9.2.0 or newer) and cabal-install
 * `cabal update && cabal install ansi-terminal fixed-vector`
 
 ## Usage:
@@ -85,7 +85,7 @@ Cooked:
     * https://www.zrtlab.com/blog/archive/guide-how-to-treat-iodine-deficiency/
     * 200µg I2 per 3L of water is 15-150 times less than used for drinking water disinfection
 * Fluoride
-  * Controversive
+  * Controversial
   * https://en.wikipedia.org/wiki/Fluoride_deficiency
   * No effect on bone strength
     * https://www.ncbi.nlm.nih.gov/pubmed/8897754
