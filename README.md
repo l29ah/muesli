@@ -43,6 +43,10 @@ Cooked:
 * Calcium
   * [Calcium Supplementation in Clinical Practice: A Review of Forms, Doses, and Indications](https://onlinelibrary.wiley.com/doi/full/10.1177/0115426507022003286)
   * [Stimulates gastric acid secretion](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1411522/)
+* Magnesium
+  * The IOM DRI UL is way too conservative, since at doses <2.5g the only side effect is possible mild diarrhea in some populations when supplemented
+    * https://www.sciencedirect.com/science/article/pii/S2161831323013352
+    * https://ec.europa.eu/food/fs/sc/scf/out105_en.pdf
 * Potassium
   * https://www.nal.usda.gov/sites/default/files/fnic_uploads/water_full_report.pdf
 * Sodium
