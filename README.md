@@ -62,6 +62,8 @@ Cooked:
   * I got 8µg/L whole blood Mn while consuming 20.1mg Mn from oats per day
 * Vitamin A
   * 1 IU = 300ng of retinol
+  * EFSA [recommends 750μg retinol a day for adult men and 1300 for lactating women](https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2015.4028)
+  * Dietary carotenoid bioavailability and conversion [is likely to be poor](https://pmc.ncbi.nlm.nih.gov/articles/PMC10261660/)
 * Vitamin K
   * green veggies
 * Vitamin C
